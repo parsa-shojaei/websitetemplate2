@@ -1,0 +1,1958 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دفترِ شب | وبلاگ تفکر، طراحی و زندگی</title>
+<meta name="description" content="دفترِ شب — جایی برای نوشتن درباره هوش مصنوعی، تمرکز، طراحی، برندسازی، مینیمالیسم، سفر و زندگی">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+  * { margin:0; padding:0; box-sizing:border-box; font-family:'Vazirmatn', sans-serif; }
+  :root {
+    --bg:#070a14;
+    --bg-2:#0a0f1e;
+    --card:#0f1628;
+    --card-2:#141d33;
+    --border:rgba(139,92,246,.12);
+    --border-hover:rgba(139,92,246,.4);
+    --violet:#8b5cf6;
+    --violet-2:#a78bfa;
+    --cyan:#22d3ee;
+    --cyan-2:#67e8f9;
+    --pink:#f472b6;
+    --grad:linear-gradient(135deg,#8b5cf6 0%,#22d3ee 100%);
+    --grad-pink:linear-gradient(135deg,#8b5cf6 0%,#f472b6 100%);
+    --grad-full:linear-gradient(90deg,#8b5cf6,#22d3ee,#f472b6);
+    --text:#e8e9f3;
+    --text-2:#9ca3c4;
+    --text-3:#6b7194;
+    --serif:'Georgia','Times New Roman',serif;
+  }
+  html { scroll-behavior:smooth; }
+  body {
+    background:var(--bg); color:var(--text);
+    line-height:1.9; overflow-x:hidden;
+    position:relative;
+  }
+  ::selection { background:var(--violet); color:#fff; }
+  ::-webkit-scrollbar { width:9px; }
+  ::-webkit-scrollbar-track { background:var(--bg-2); }
+  ::-webkit-scrollbar-thumb { background:linear-gradient(var(--violet),var(--cyan)); border-radius:5px; }
+
+  body::before, body::after {
+    content:''; position:fixed; border-radius:50%;
+    filter:blur(140px); opacity:.18; z-index:0;
+    pointer-events:none;
+  }
+  body::before {
+    width:600px; height:600px;
+    background:radial-gradient(circle,#8b5cf6,transparent 70%);
+    top:-200px; right:-200px;
+    animation:orb 25s ease-in-out infinite;
+  }
+  body::after {
+    width:500px; height:500px;
+    background:radial-gradient(circle,#22d3ee,transparent 70%);
+    bottom:-150px; left:-150px;
+    animation:orb 30s ease-in-out infinite reverse;
+  }
+  @keyframes orb {
+    0%,100% { transform:translate(0,0); }
+    50% { transform:translate(-40px,40px); }
+  }
+  body > * { position:relative; z-index:1; }
+
+  .container { max-width:1220px; margin:auto; padding:0 32px; }
+  .grad-text { background:var(--grad); -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .grad-text-pink { background:var(--grad-pink); -webkit-background-clip:text; background-clip:text; color:transparent; }
+
+  /* ===== HEADER ===== */
+  header {
+    position:sticky; top:0; z-index:1000;
+    background:rgba(7,10,20,.85);
+    backdrop-filter:blur(22px) saturate(180%);
+    border-bottom:1px solid var(--border);
+  }
+  .top-strip {
+    background:var(--grad-full);
+    color:#fff; text-align:center;
+    font-size:12px; font-weight:700;
+    padding:7px 12px; letter-spacing:.5px;
+  }
+  nav {
+    max-width:1220px; margin:auto;
+    padding:18px 32px;
+    display:flex; align-items:center;
+    justify-content:space-between; gap:30px;
+  }
+  .logo {
+    display:flex; align-items:center; gap:12px;
+    font-size:22px; font-weight:900;
+    color:var(--text); text-decoration:none;
+  }
+  .logo-mark {
+    width:46px; height:46px; border-radius:50%;
+    background:var(--grad);
+    display:grid; place-items:center;
+    font-size:22px; color:#fff;
+    box-shadow:0 0 30px rgba(139,92,246,.5);
+    position:relative;
+  }
+  .logo-mark::after {
+    content:''; position:absolute; inset:-6px;
+    border-radius:50%; background:var(--grad);
+    filter:blur(14px); opacity:.5; z-index:-1;
+  }
+  .logo-text { display:flex; flex-direction:column; line-height:1.1; }
+  .logo-sub {
+    font-family:var(--serif); font-size:10px;
+    color:var(--text-3); letter-spacing:4px;
+    margin-top:2px;
+  }
+
+  .nav-menu { display:flex; gap:32px; }
+  .nav-menu a {
+    color:var(--text-2); text-decoration:none;
+    font-size:14px; font-weight:500;
+    transition:.3s; position:relative;
+    padding:6px 0;
+  }
+  .nav-menu a::after {
+    content:''; position:absolute; bottom:0; right:0;
+    width:0; height:2px;
+    background:var(--grad);
+    transition:.3s; border-radius:2px;
+  }
+  .nav-menu a:hover { color:var(--text); }
+  .nav-menu a:hover::after { width:100%; }
+
+  .nav-actions { display:flex; gap:10px; align-items:center; }
+  .icon-btn {
+    width:42px; height:42px; border-radius:50%;
+    border:1px solid var(--border); background:transparent;
+    color:var(--text-2); cursor:pointer;
+    display:grid; place-items:center;
+    font-size:16px; transition:.3s;
+  }
+  .icon-btn:hover {
+    border-color:var(--violet); color:var(--violet-2);
+    background:rgba(139,92,246,.1);
+    box-shadow:0 0 20px rgba(139,92,246,.3);
+  }
+  .subscribe-btn {
+    padding:11px 24px; border-radius:30px;
+    background:var(--grad); color:#fff;
+    border:none; cursor:pointer;
+    font-family:inherit; font-size:13px; font-weight:700;
+    transition:.3s;
+    box-shadow:0 6px 20px rgba(139,92,246,.35);
+  }
+  .subscribe-btn:hover {
+    transform:translateY(-2px);
+    box-shadow:0 10px 30px rgba(139,92,246,.55);
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding:80px 0 100px;
+    position:relative; overflow:hidden;
+  }
+  .hero::before {
+    content:'"';
+    position:absolute; top:-20px; right:5%;
+    font-family:var(--serif);
+    font-size:400px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    opacity:.06; line-height:1;
+    pointer-events:none;
+  }
+  .hero-inner {
+    display:grid; grid-template-columns:1.2fr 1fr;
+    gap:70px; align-items:center;
+  }
+  .hero-label {
+    display:inline-flex; align-items:center; gap:10px;
+    font-size:12px; color:var(--cyan);
+    letter-spacing:3px; font-weight:700;
+    margin-bottom:28px;
+  }
+  .hero-label::before {
+    content:''; width:40px; height:1px;
+    background:var(--cyan);
+  }
+  .hero h1 {
+    font-family:var(--serif);
+    font-size:54px; font-weight:400;
+    line-height:1.3; margin-bottom:24px;
+    letter-spacing:-1px;
+  }
+  .hero h1 em {
+    font-style:italic;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p {
+    font-size:17px; color:var(--text-2);
+    line-height:2; margin-bottom:36px;
+    max-width:520px;
+  }
+  .hero-actions { display:flex; gap:16px; flex-wrap:wrap; }
+  .btn-primary {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 30px; border-radius:30px;
+    background:var(--grad); color:#fff;
+    border:none; cursor:pointer;
+    font-family:inherit; font-size:14px; font-weight:700;
+    text-decoration:none; transition:.3s;
+    box-shadow:0 8px 25px rgba(139,92,246,.4);
+  }
+  .btn-primary:hover {
+    transform:translateY(-3px);
+    box-shadow:0 12px 35px rgba(139,92,246,.6);
+  }
+  .btn-ghost {
+    display:inline-flex; align-items:center; gap:10px;
+    padding:14px 28px; border-radius:30px;
+    background:transparent; color:var(--text);
+    border:1px solid var(--border-hover);
+    cursor:pointer; font-family:inherit;
+    font-size:14px; font-weight:600;
+    text-decoration:none; transition:.3s;
+  }
+  .btn-ghost:hover {
+    border-color:var(--cyan); color:var(--cyan);
+    background:rgba(34,211,238,.08);
+    box-shadow:0 0 25px rgba(34,211,238,.25);
+  }
+
+  .hero-visual {
+    position:relative; height:420px;
+    display:grid; place-items:center;
+  }
+  .hero-orbits {
+    position:absolute; inset:0;
+    display:grid; place-items:center;
+  }
+  .orbit {
+    position:absolute;
+    border:1px solid var(--border);
+    border-radius:50%;
+  }
+  .orbit.o1 { width:300px; height:300px; animation:spin 25s linear infinite; border-color:rgba(139,92,246,.25); }
+  .orbit.o2 { width:380px; height:380px; animation:spin 40s linear infinite reverse; border-color:rgba(34,211,238,.15); }
+  .orbit.o3 { width:440px; height:440px; animation:spin 60s linear infinite; border-style:dashed; border-color:rgba(244,114,182,.12); }
+  @keyframes spin { to { transform:rotate(360deg); } }
+  .orbit-dot {
+    position:absolute; width:12px; height:12px;
+    border-radius:50%;
+    background:var(--violet);
+    box-shadow:0 0 20px var(--violet);
+    top:50%; left:50%;
+    margin:-6px 0 0 -6px;
+  }
+  .orbit.o1 .orbit-dot { transform:translate(150px,0); }
+  .orbit.o2 .orbit-dot {
+    background:var(--cyan); box-shadow:0 0 20px var(--cyan);
+    transform:translate(0,-190px);
+  }
+  .orbit.o3 .orbit-dot {
+    background:var(--pink); box-shadow:0 0 20px var(--pink);
+    transform:translate(220px,0);
+  }
+  .hero-core {
+    width:200px; height:200px;
+    border-radius:50%;
+    background:var(--grad);
+    display:grid; place-items:center;
+    font-size:80px;
+    box-shadow:
+      0 0 80px rgba(139,92,246,.5),
+      inset 0 0 40px rgba(255,255,255,.15);
+    position:relative; z-index:2;
+    animation:float 4s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%,100% { transform:translateY(0); }
+    50% { transform:translateY(-15px); }
+  }
+
+  /* ===== TICKER ===== */
+  .ticker {
+    background:var(--bg-2);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:14px 0; overflow:hidden;
+  }
+  .ticker-inner {
+    display:flex; gap:60px;
+    animation:ticker 40s linear infinite;
+    white-space:nowrap;
+  }
+  @keyframes ticker {
+    0% { transform:translateX(0); }
+    100% { transform:translateX(50%); }
+  }
+  .ticker-item {
+    display:flex; align-items:center; gap:12px;
+    font-size:13px; color:var(--text-2);
+  }
+  .ticker-item .dot {
+    width:6px; height:6px; border-radius:50%;
+    background:var(--cyan);
+    box-shadow:0 0 10px var(--cyan);
+  }
+  .ticker-item b { color:var(--text); font-weight:600; }
+
+  /* ===== CATEGORIES ===== */
+  .categories-section { padding:60px 0 40px; }
+  .cats-inner {
+    display:flex; gap:10px; flex-wrap:wrap;
+    justify-content:center;
+  }
+  .cat-pill {
+    padding:10px 22px; border-radius:30px;
+    background:var(--card); border:1px solid var(--border);
+    color:var(--text-2); font-size:13px; font-weight:500;
+    cursor:pointer; transition:.3s;
+    font-family:inherit;
+  }
+  .cat-pill:hover, .cat-pill.active {
+    background:var(--grad); color:#fff;
+    border-color:transparent;
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(139,92,246,.35);
+  }
+  .cat-pill .count { font-size:11px; opacity:.7; margin-right:4px; }
+
+  /* ===== SECTION ===== */
+  .section { padding:80px 0; }
+  .section-head { text-align:center; margin-bottom:60px; }
+  .section-label {
+    font-size:12px; color:var(--cyan);
+    letter-spacing:4px; font-weight:700;
+    margin-bottom:16px; text-transform:uppercase;
+  }
+  .section-head h2 {
+    font-family:var(--serif);
+    font-size:42px; font-weight:400;
+    line-height:1.3; letter-spacing:-1px;
+    margin-bottom:16px;
+  }
+  .section-head p {
+    font-size:15px; color:var(--text-2);
+    max-width:620px; margin:auto;
+  }
+  .section-divider {
+    width:60px; height:1px;
+    background:var(--grad); margin:24px auto 0;
+    position:relative;
+  }
+  .section-divider::before, .section-divider::after {
+    content:'◆'; position:absolute; top:50%;
+    transform:translateY(-50%);
+    font-size:8px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .section-divider::before { right:-14px; }
+  .section-divider::after { left:-14px; }
+
+  /* ===== FEATURED ===== */
+  .featured { padding:60px 0; }
+  .featured-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    overflow:hidden;
+    display:grid; grid-template-columns:1.1fr 1fr;
+    transition:.3s;
+  }
+  .featured-card:hover {
+    border-color:var(--border-hover);
+    box-shadow:0 30px 60px rgba(0,0,0,.5), 0 0 60px rgba(139,92,246,.15);
+  }
+  .featured-visual {
+    background:
+      radial-gradient(circle at 30% 30%, rgba(139,92,246,.25), transparent 60%),
+      radial-gradient(circle at 70% 70%, rgba(34,211,238,.15), transparent 60%),
+      linear-gradient(135deg,#141d33,#0f1628);
+    display:grid; place-items:center;
+    min-height:420px;
+    position:relative; overflow:hidden;
+  }
+  .featured-visual::before {
+    content:''; position:absolute; inset:0;
+    background-image:
+      linear-gradient(rgba(139,92,246,.06) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(139,92,246,.06) 1px, transparent 1px);
+    background-size:32px 32px;
+  }
+  .featured-emoji {
+    font-size:120px;
+    filter:drop-shadow(0 10px 40px rgba(139,92,246,.6));
+    position:relative; z-index:1;
+    animation:float 5s ease-in-out infinite;
+  }
+  .featured-badge {
+    position:absolute; top:20px; right:20px;
+    padding:8px 18px; border-radius:20px;
+    background:var(--grad); color:#fff;
+    font-size:11px; font-weight:800;
+    letter-spacing:1px;
+    z-index:2;
+    box-shadow:0 8px 20px rgba(139,92,246,.4);
+  }
+  .featured-content {
+    padding:52px 48px;
+    display:flex; flex-direction:column;
+    justify-content:center;
+  }
+  .featured-meta {
+    display:flex; gap:16px; align-items:center;
+    font-size:12px; color:var(--text-3);
+    margin-bottom:20px;
+  }
+  .featured-meta span { display:flex; align-items:center; gap:6px; }
+  .featured-cat {
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    font-weight:700; letter-spacing:1px;
+  }
+  .featured-content h2 {
+    font-family:var(--serif);
+    font-size:34px; font-weight:400;
+    line-height:1.4; margin-bottom:20px;
+    letter-spacing:-.5px;
+  }
+  .featured-content p {
+    font-size:15px; color:var(--text-2);
+    line-height:2; margin-bottom:28px;
+  }
+  .featured-author {
+    display:flex; align-items:center; gap:14px;
+    padding-top:24px; border-top:1px solid var(--border);
+  }
+  .author-avatar {
+    width:48px; height:48px; border-radius:50%;
+    background:var(--grad);
+    display:grid; place-items:center;
+    color:#fff; font-weight:900; font-size:18px;
+  }
+  .author-info b { display:block; font-size:14px; font-weight:700; }
+  .author-info span { font-size:12px; color:var(--text-3); }
+  .read-more {
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    font-size:14px; font-weight:700;
+    margin-top:24px; transition:.3s;
+    cursor:pointer; border:none;
+    font-family:inherit; padding:0;
+  }
+  .read-more:hover { gap:14px; }
+
+  /* ===== ARTICLES GRID ===== */
+  .articles-grid {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:28px;
+  }
+  .article-card {
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px; overflow:hidden;
+    transition:.4s;
+    display:flex; flex-direction:column;
+    cursor:pointer;
+    position:relative;
+  }
+  .article-card::after {
+    content:''; position:absolute;
+    inset:0; border-radius:20px;
+    padding:1px;
+    background:var(--grad);
+    -webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;
+    mask-composite:exclude;
+    opacity:0; transition:.4s;
+    pointer-events:none;
+  }
+  .article-card:hover::after { opacity:1; }
+  .article-card:hover {
+    transform:translateY(-8px);
+    box-shadow:0 25px 50px rgba(0,0,0,.5), 0 0 40px rgba(139,92,246,.15);
+  }
+  .article-visual {
+    height:200px;
+    background:linear-gradient(135deg,#141d33,#0a0f1e);
+    display:grid; place-items:center;
+    font-size:70px;
+    position:relative; overflow:hidden;
+  }
+  .article-visual::before {
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle at 50% 50%, rgba(139,92,246,.2), transparent 70%);
+    transition:.4s;
+  }
+  .article-card:hover .article-visual::before {
+    background:radial-gradient(circle at 50% 50%, rgba(139,92,246,.4), transparent 70%);
+  }
+  .article-cat {
+    position:absolute; top:14px; right:14px;
+    padding:5px 14px; border-radius:16px;
+    background:rgba(7,10,20,.85);
+    border:1px solid var(--border-hover);
+    font-size:10px; font-weight:700;
+    letter-spacing:1px;
+    backdrop-filter:blur(10px);
+    z-index:2;
+    background-clip:padding-box;
+  }
+  .article-cat span {
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .article-body {
+    padding:28px; flex:1;
+    display:flex; flex-direction:column;
+  }
+  .article-meta {
+    display:flex; gap:14px; align-items:center;
+    font-size:11px; color:var(--text-3);
+    margin-bottom:14px;
+  }
+  .article-body h3 {
+    font-family:var(--serif);
+    font-size:22px; font-weight:400;
+    line-height:1.5; margin-bottom:14px;
+    letter-spacing:-.3px; transition:.3s;
+  }
+  .article-card:hover .article-body h3 {
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .article-body p {
+    font-size:13px; color:var(--text-2);
+    line-height:1.9; margin-bottom:20px;
+    flex:1;
+  }
+  .article-footer {
+    display:flex; justify-content:space-between;
+    align-items:center;
+    padding-top:16px; border-top:1px solid var(--border);
+    font-size:12px; color:var(--text-3);
+  }
+  .article-footer .arrow {
+    font-size:16px; transition:.3s;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .article-card:hover .article-footer .arrow {
+    transform:translateX(-6px);
+  }
+
+  /* ===== FULL ARTICLE ===== */
+  .full-article-section {
+    background:var(--bg-2);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+    padding:100px 0;
+  }
+  .full-article {
+    max-width:780px; margin:auto;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:20px;
+    padding:64px 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .full-article::before {
+    content:'"';
+    position:absolute; top:20px; right:40px;
+    font-family:var(--serif);
+    font-size:220px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    opacity:.08; line-height:1;
+    pointer-events:none;
+  }
+  .full-article > * { position:relative; z-index:1; }
+  .art-cat {
+    display:inline-block;
+    padding:6px 18px; border-radius:20px;
+    background:rgba(139,92,246,.1);
+    border:1px solid rgba(139,92,246,.3);
+    font-size:11px; font-weight:700;
+    letter-spacing:1px;
+    margin-bottom:24px;
+    background-clip:padding-box;
+  }
+  .art-cat span {
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .full-article h1 {
+    font-family:var(--serif);
+    font-size:42px; font-weight:400;
+    line-height:1.35; margin-bottom:20px;
+    letter-spacing:-1px;
+  }
+  .full-article .art-meta {
+    display:flex; gap:20px; align-items:center;
+    font-size:12px; color:var(--text-3);
+    padding-bottom:28px; margin-bottom:36px;
+    border-bottom:1px solid var(--border);
+    flex-wrap:wrap;
+  }
+  .art-author { display:flex; align-items:center; gap:10px; }
+  .art-author b { color:var(--text); font-weight:600; }
+  .mini-avatar {
+    width:32px; height:32px; border-radius:50%;
+    background:var(--grad);
+    display:grid; place-items:center;
+    color:#fff; font-size:12px; font-weight:900;
+  }
+  .full-article p {
+    font-size:16px; line-height:2.1;
+    color:var(--text); margin-bottom:22px;
+  }
+  .full-article p.lead {
+    font-size:18px; font-weight:500;
+    padding-bottom:10px;
+  }
+  .full-article p.lead::first-letter {
+    font-family:var(--serif);
+    font-size:64px; font-weight:700;
+    float:right; line-height:.9;
+    margin:6px 0 0 12px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .full-article h2 {
+    font-family:var(--serif);
+    font-size:28px; font-weight:400;
+    margin:42px 0 20px;
+    letter-spacing:-.5px;
+    position:relative; padding-right:20px;
+  }
+  .full-article h2::before {
+    content:''; position:absolute;
+    right:0; top:12px; bottom:12px;
+    width:3px; background:var(--grad);
+    border-radius:2px;
+  }
+  .full-article blockquote {
+    padding:24px 32px; margin:32px 0;
+    border-right:4px solid var(--violet);
+    background:rgba(139,92,246,.06);
+    border-radius:0 12px 12px 0;
+    font-family:var(--serif);
+    font-size:18px; font-style:italic;
+    line-height:1.9;
+    position:relative;
+  }
+  .full-article blockquote::before {
+    content:'«';
+    position:absolute; top:10px; left:20px;
+    font-size:40px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    opacity:.6; line-height:1;
+  }
+  .full-article ul {
+    margin:20px 0 24px;
+    padding-right:24px; list-style:none;
+  }
+  .full-article ul li {
+    font-size:15px; line-height:1.9;
+    color:var(--text-2);
+    padding-right:26px; margin-bottom:12px;
+    position:relative;
+  }
+  .full-article ul li::before {
+    content:'◆'; position:absolute;
+    right:0; top:2px; font-size:10px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .full-article strong { color:var(--text); font-weight:700; }
+  .art-tags {
+    display:flex; gap:8px; flex-wrap:wrap;
+    margin-top:40px; padding-top:28px;
+    border-top:1px solid var(--border);
+  }
+  .art-tag {
+    padding:6px 14px; border-radius:16px;
+    background:var(--card-2);
+    border:1px solid var(--border);
+    color:var(--text-2);
+    font-size:11px; font-weight:500;
+    transition:.3s; cursor:pointer;
+  }
+  .art-tag:hover {
+    border-color:var(--violet); color:var(--violet-2);
+    background:rgba(139,92,246,.1);
+  }
+
+  /* ===== QUOTE ===== */
+  .quote-section {
+    padding:100px 0;
+    text-align:center;
+    position:relative;
+  }
+  .quote-section::before {
+    content:'"';
+    position:absolute; top:40px; left:50%;
+    transform:translateX(-50%);
+    font-family:var(--serif);
+    font-size:300px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    opacity:.08; line-height:1;
+    pointer-events:none;
+  }
+  .quote-inner {
+    max-width:820px; margin:auto;
+    position:relative; z-index:1;
+  }
+  .quote-mark {
+    font-family:var(--serif);
+    font-size:80px; line-height:1;
+    margin-bottom:20px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    opacity:.6;
+  }
+  .quote-text {
+    font-family:var(--serif);
+    font-size:32px; font-weight:400;
+    line-height:1.6;
+    font-style:italic;
+    letter-spacing:-.5px;
+    margin-bottom:28px;
+  }
+  .quote-author {
+    font-size:13px; color:var(--cyan);
+    letter-spacing:3px; font-weight:600;
+  }
+  .quote-author::before { content:'— '; margin-left:8px; }
+
+  /* ===== AUTHOR ===== */
+  .author-section {
+    padding:100px 0;
+    background:var(--bg-2);
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .author-inner {
+    display:grid; grid-template-columns:1fr 1.5fr;
+    gap:70px; align-items:center;
+  }
+  .author-portrait {
+    position:relative; height:400px;
+    display:grid; place-items:center;
+  }
+  .portrait-frame {
+    width:280px; height:340px;
+    background:
+      radial-gradient(circle at 50% 30%, rgba(139,92,246,.25), transparent 60%),
+      radial-gradient(circle at 50% 80%, rgba(34,211,238,.15), transparent 60%),
+      linear-gradient(135deg,#141d33,#0a0f1e);
+    border:1px solid var(--border-hover);
+    border-radius:20px;
+    display:grid; place-items:center;
+    font-size:120px;
+    position:relative;
+    transform:rotate(-3deg);
+    transition:.4s;
+    box-shadow:0 30px 60px rgba(0,0,0,.5);
+  }
+  .author-portrait:hover .portrait-frame {
+    transform:rotate(0deg) scale(1.02);
+    box-shadow:0 30px 80px rgba(139,92,246,.3);
+  }
+  .portrait-frame::before {
+    content:''; position:absolute;
+    inset:-8px;
+    border:1px solid var(--violet);
+    border-radius:22px; opacity:.4;
+    transform:rotate(6deg);
+  }
+  .author-content .section-label {
+    text-align:right; margin-bottom:16px;
+  }
+  .author-content h2 {
+    font-family:var(--serif);
+    font-size:38px; font-weight:400;
+    line-height:1.35; margin-bottom:20px;
+    letter-spacing:-1px;
+  }
+  .author-content > p {
+    font-size:15px; color:var(--text-2);
+    line-height:2; margin-bottom:24px;
+  }
+  .author-stats {
+    display:flex; gap:36px;
+    margin:32px 0; padding:24px 0;
+    border-top:1px solid var(--border);
+    border-bottom:1px solid var(--border);
+  }
+  .author-stat b {
+    display:block;
+    font-family:var(--serif);
+    font-size:32px; font-weight:700;
+    margin-bottom:4px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .author-stat span { font-size:12px; color:var(--text-3); }
+  .author-socials { display:flex; gap:10px; }
+  .author-socials a {
+    width:42px; height:42px; border-radius:50%;
+    background:var(--card);
+    border:1px solid var(--border);
+    display:grid; place-items:center;
+    color:var(--text-2); text-decoration:none;
+    font-size:14px; transition:.3s;
+  }
+  .author-socials a:hover {
+    background:var(--grad); color:#fff;
+    border-color:transparent;
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(139,92,246,.4);
+  }
+
+  /* ===== NEWSLETTER ===== */
+  .newsletter { padding:100px 0; text-align:center; }
+  .newsletter-inner {
+    max-width:720px; margin:auto;
+    padding:60px 48px;
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:24px;
+    position:relative; overflow:hidden;
+  }
+  .newsletter-inner::before {
+    content:''; position:absolute; inset:0;
+    background:
+      radial-gradient(circle at 20% 20%, rgba(139,92,246,.15), transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(34,211,238,.1), transparent 50%);
+    pointer-events:none;
+  }
+  .newsletter-inner > * { position:relative; z-index:1; }
+  .newsletter h2 {
+    font-family:var(--serif);
+    font-size:34px; font-weight:400;
+    line-height:1.4; margin-bottom:16px;
+    letter-spacing:-.5px;
+  }
+  .newsletter p {
+    font-size:14px; color:var(--text-2);
+    line-height:1.9; margin-bottom:32px;
+  }
+  .newsletter-form {
+    display:flex; gap:10px;
+    max-width:500px; margin:auto;
+  }
+  .newsletter-form input {
+    flex:1;
+    padding:15px 22px;
+    background:var(--bg-2);
+    border:1px solid var(--border);
+    border-radius:30px;
+    color:var(--text);
+    font-family:inherit; font-size:14px;
+    outline:none; transition:.3s;
+  }
+  .newsletter-form input::placeholder { color:var(--text-3); }
+  .newsletter-form input:focus {
+    border-color:var(--violet);
+    box-shadow:0 0 0 4px rgba(139,92,246,.1), 0 0 20px rgba(139,92,246,.2);
+  }
+  .newsletter-form button {
+    padding:15px 30px;
+    background:var(--grad); color:#fff;
+    border:none; border-radius:30px;
+    font-family:inherit; font-size:14px; font-weight:700;
+    cursor:pointer; transition:.3s;
+    box-shadow:0 6px 20px rgba(139,92,246,.35);
+  }
+  .newsletter-form button:hover {
+    transform:translateY(-2px);
+    box-shadow:0 10px 28px rgba(139,92,246,.55);
+  }
+  .newsletter-hint {
+    font-size:12px; color:var(--text-3);
+    margin-top:16px;
+  }
+
+  /* ===== TAGS ===== */
+  .tags-section { padding:60px 0 100px; text-align:center; }
+  .tags-inner {
+    display:flex; flex-wrap:wrap;
+    gap:10px; justify-content:center;
+    max-width:950px; margin:32px auto 0;
+  }
+  .tag-chip {
+    padding:10px 20px;
+    border-radius:30px;
+    background:var(--card);
+    border:1px solid var(--border);
+    color:var(--text-2);
+    font-size:13px; font-weight:500;
+    cursor:pointer; transition:.3s;
+  }
+  .tag-chip:hover {
+    border-color:var(--cyan);
+    color:var(--cyan);
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(34,211,238,.15);
+  }
+  .tag-chip .count { font-size:11px; color:var(--text-3); margin-right:4px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background:var(--bg-2);
+    border-top:1px solid var(--border);
+    padding:70px 0 30px;
+  }
+  .footer-grid {
+    display:grid; grid-template-columns:1.5fr 1fr 1fr 1.2fr;
+    gap:50px;
+    padding-bottom:50px;
+    border-bottom:1px solid var(--border);
+  }
+  .footer-brand .logo { margin-bottom:20px; }
+  .footer-brand p {
+    font-size:14px; color:var(--text-2);
+    line-height:1.9; margin-bottom:24px;
+  }
+  .footer-socials { display:flex; gap:10px; }
+  .footer-socials a {
+    width:40px; height:40px; border-radius:50%;
+    background:var(--card);
+    border:1px solid var(--border);
+    display:grid; place-items:center;
+    color:var(--text-2); text-decoration:none;
+    font-size:14px; transition:.3s;
+  }
+  .footer-socials a:hover {
+    background:var(--grad); color:#fff;
+    border-color:transparent;
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(139,92,246,.4);
+  }
+  .footer-col h4 {
+    font-size:14px; font-weight:700;
+    margin-bottom:22px;
+    position:relative; padding-bottom:12px;
+    letter-spacing:.3px;
+  }
+  .footer-col h4::after {
+    content:''; position:absolute;
+    bottom:0; right:0;
+    width:24px; height:2px;
+    background:var(--grad);
+  }
+  .footer-col a {
+    display:block;
+    color:var(--text-2); text-decoration:none;
+    font-size:13px; padding:7px 0;
+    transition:.3s;
+  }
+  .footer-col a:hover {
+    color:var(--cyan);
+    padding-right:6px;
+  }
+  .footer-contact {
+    font-size:13px; color:var(--text-2);
+    margin-bottom:12px;
+    display:flex; gap:10px;
+    align-items:flex-start;
+  }
+  .footer-contact .fc-icon {
+    color:var(--cyan);
+    flex-shrink:0; margin-top:2px;
+  }
+  .footer-contact a {
+    color:var(--text-2); text-decoration:none;
+    transition:.3s; padding:0;
+  }
+  .footer-contact a:hover { color:var(--cyan); padding:0; }
+  .footer-bottom {
+    padding-top:30px;
+    display:flex; justify-content:space-between;
+    align-items:center; gap:16px;
+    flex-wrap:wrap;
+    font-size:12px; color:var(--text-3);
+  }
+  .footer-bottom b {
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+    font-weight:700;
+  }
+  .footer-dev {
+    display:flex; align-items:center; gap:8px;
+    padding:8px 16px;
+    background:rgba(139,92,246,.06);
+    border:1px solid rgba(139,92,246,.2);
+    border-radius:20px;
+  }
+  .footer-dev .dot {
+    width:6px; height:6px; border-radius:50%;
+    background:#10b981; box-shadow:0 0 8px #10b981;
+    animation:pulse 2s infinite;
+  }
+  @keyframes pulse {
+    0%,100% { opacity:1; }
+    50% { opacity:.4; }
+  }
+
+  /* ===== MODAL ===== */
+  .modal {
+    position:fixed; inset:0;
+    background:rgba(4,6,14,.9);
+    backdrop-filter:blur(10px);
+    z-index:9000;
+    display:none;
+    overflow-y:auto;
+    padding:40px 20px;
+    animation:fadeIn .3s ease;
+  }
+  .modal.open { display:block; }
+  @keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+  .modal-content {
+    max-width:800px; margin:auto;
+    background:var(--card);
+    border:1px solid var(--border-hover);
+    border-radius:20px;
+    padding:60px 56px;
+    position:relative;
+    animation:slideUp .4s ease;
+  }
+  @keyframes slideUp {
+    from { transform:translateY(40px); opacity:0; }
+    to { transform:translateY(0); opacity:1; }
+  }
+  .modal-close {
+    position:absolute; top:20px; left:20px;
+    width:40px; height:40px; border-radius:50%;
+    background:var(--bg-2);
+    border:1px solid var(--border);
+    color:var(--text-2);
+    cursor:pointer; display:grid; place-items:center;
+    font-size:20px; transition:.3s;
+    z-index:2;
+  }
+  .modal-close:hover {
+    background:var(--grad); color:#fff;
+    border-color:transparent;
+    box-shadow:0 0 20px rgba(139,92,246,.5);
+  }
+  .modal-body p.lead::first-letter {
+    font-family:var(--serif);
+    font-size:56px; font-weight:700;
+    float:right; line-height:.9;
+    margin:6px 0 0 12px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .modal-body h1 {
+    font-family:var(--serif);
+    font-size:34px; font-weight:400;
+    line-height:1.4; margin-bottom:16px;
+  }
+  .modal-body .art-meta {
+    display:flex; gap:16px; flex-wrap:wrap;
+    font-size:12px; color:var(--text-3);
+    padding-bottom:20px; margin-bottom:28px;
+    border-bottom:1px solid var(--border);
+  }
+  .modal-body p {
+    font-size:15px; line-height:2;
+    margin-bottom:20px;
+  }
+  .modal-body p.lead {
+    font-size:17px; font-weight:500;
+  }
+  .modal-body h2 {
+    font-family:var(--serif);
+    font-size:24px; font-weight:400;
+    margin:32px 0 16px;
+    position:relative; padding-right:18px;
+  }
+  .modal-body h2::before {
+    content:''; position:absolute;
+    right:0; top:8px; bottom:8px;
+    width:3px; background:var(--grad);
+    border-radius:2px;
+  }
+  .modal-body blockquote {
+    padding:20px 26px; margin:24px 0;
+    border-right:4px solid var(--violet);
+    background:rgba(139,92,246,.06);
+    border-radius:0 10px 10px 0;
+    font-family:var(--serif);
+    font-size:17px; font-style:italic;
+    line-height:1.9;
+  }
+  .modal-body ul {
+    margin:16px 0 20px;
+    padding-right:22px; list-style:none;
+  }
+  .modal-body ul li {
+    font-size:14px; line-height:1.9;
+    color:var(--text-2);
+    padding-right:24px; margin-bottom:10px;
+    position:relative;
+  }
+  .modal-body ul li::before {
+    content:'◆'; position:absolute;
+    right:0; top:2px; font-size:10px;
+    background:var(--grad);
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .modal-body strong { color:var(--text); font-weight:700; }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width:1000px) {
+    .hero-inner { grid-template-columns:1fr; gap:50px; text-align:center; }
+    .hero p { margin-left:auto; margin-right:auto; }
+    .hero-actions { justify-content:center; }
+    .hero-visual { height:360px; }
+    .orbit.o1 { width:220px; height:220px; }
+    .orbit.o2 { width:280px; height:280px; }
+    .orbit.o3 { width:330px; height:330px; }
+    .orbit.o1 .orbit-dot { transform:translate(110px,0); }
+    .orbit.o2 .orbit-dot { transform:translate(0,-140px); }
+    .orbit.o3 .orbit-dot { transform:translate(165px,0); }
+    .hero-core { width:160px; height:160px; font-size:70px; }
+    .hero h1 { font-size:40px; }
+    .featured-card { grid-template-columns:1fr; }
+    .featured-visual { min-height:280px; }
+    .featured-content { padding:36px 32px; }
+    .articles-grid { grid-template-columns:repeat(2,1fr); }
+    .author-inner { grid-template-columns:1fr; gap:50px; text-align:center; }
+    .author-content .section-label { text-align:center; }
+    .author-stats { justify-content:center; }
+    .author-socials { justify-content:center; }
+    .nav-menu { display:none; }
+    .footer-grid { grid-template-columns:1fr 1fr; }
+    .full-article { padding:44px 32px; }
+    .full-article h1 { font-size:32px; }
+    .section-head h2 { font-size:32px; }
+    .quote-text { font-size:24px; }
+  }
+  @media (max-width:640px) {
+    .container { padding:0 20px; }
+    nav { padding:14px 20px; }
+    .top-strip { font-size:11px; }
+    .hero { padding:50px 0 70px; }
+    .hero h1 { font-size:32px; letter-spacing:-.5px; }
+    .hero p { font-size:15px; }
+    .articles-grid { grid-template-columns:1fr; }
+    .section { padding:60px 0; }
+    .section-head { margin-bottom:40px; }
+    .section-head h2 { font-size:26px; }
+    .featured-content h2 { font-size:24px; }
+    .full-article h1 { font-size:26px; }
+    .full-article { padding:32px 24px; }
+    .newsletter-inner { padding:40px 24px; }
+    .newsletter h2 { font-size:24px; }
+    .newsletter-form { flex-direction:column; }
+    .footer-grid { grid-template-columns:1fr; gap:36px; }
+    .footer-bottom { flex-direction:column; text-align:center; }
+    .quote-text { font-size:20px; }
+    .modal-content { padding:40px 24px; }
+    .modal-body h1 { font-size:24px; }
+    .author-content h2 { font-size:28px; }
+    .author-stats { gap:24px; flex-wrap:wrap; }
+    .author-portrait { height:320px; }
+    .portrait-frame { width:220px; height:270px; font-size:90px; }
+    .hero-core { width:130px; height:130px; font-size:60px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header>
+  <div class="top-strip">
+    ✦ شماره ۱۲ | هفته‌نامه‌ای برای ذهن‌های کنجکاو ✦
+  </div>
+  <nav>
+    <a href="#" class="logo">
+      <div class="logo-mark">◐</div>
+      <div class="logo-text">
+        <span>دفترِ شب</span>
+        <span class="logo-sub">DAFTAR-E SHAB</span>
+      </div>
+    </a>
+    <div class="nav-menu">
+      <a href="#">خانه</a>
+      <a href="#latest">مقالات</a>
+      <a href="#">دسته‌بندی‌ها</a>
+      <a href="#about">درباره</a>
+      <a href="#">تماس</a>
+    </div>
+    <div class="nav-actions">
+      <button class="icon-btn" title="جستجو">🔍</button>
+      <button class="subscribe-btn">عضویت</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-inner">
+      <div class="hero-text">
+        <div class="hero-label">دفترِ شب، شماره دوازدهم</div>
+        <h1>
+          جایی برای <em>اندیشیدن</em><br>
+          نوشتن، و کندوکاو در<br>
+          پیچیدگی‌های دنیای امروز
+        </h1>
+        <p>
+          هر هفته، در دفترِ شب، درباره‌ی موضوعاتی می‌نویسیم که ذهن‌مان را به خود مشغول کرده‌اند: از هوش مصنوعی و آینده کار، تا هنر تمرکز، طراحی تجربه، برندسازی، مینیمالیسم و زندگیِ ساده‌تر.
+        </p>
+        <div class="hero-actions">
+          <a href="#latest" class="btn-primary">شروع خواندن ←</a>
+          <a href="#about" class="btn-ghost">درباره ما</a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-orbits">
+          <div class="orbit o1"><div class="orbit-dot"></div></div>
+          <div class="orbit o2"><div class="orbit-dot"></div></div>
+          <div class="orbit o3"><div class="orbit-dot"></div></div>
+        </div>
+        <div class="hero-core">✦</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TICKER ===== -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <div class="ticker-item"><span class="dot"></span><span>جدیدترین:</span><b>وقتی ماشین‌ها فکر می‌کنند</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>پربازدید:</span><b>هنر گم‌شده تمرکز</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>پیشنهاد سردبیر:</span><b>مینیمالیسم، کمتر داشتن</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>تازه:</span><b>طراحی برای انسان</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>پیشنهاد:</span><b>قدرت عادت‌های کوچک</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>خواندنی:</span><b>چرا داستان می‌خوانیم؟</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>جدیدترین:</span><b>وقتی ماشین‌ها فکر می‌کنند</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>پربازدید:</span><b>هنر گم‌شده تمرکز</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>پیشنهاد سردبیر:</span><b>مینیمالیسم، کمتر داشتن</b></div>
+    <div class="ticker-item"><span class="dot"></span><span>تازه:</span><b>طراحی برای انسان</b></div>
+  </div>
+</div>
+
+<!-- ===== CATEGORIES ===== -->
+<section class="categories-section">
+  <div class="container">
+    <div class="cats-inner">
+      <button class="cat-pill active">همه <span class="count">(۱۲)</span></button>
+      <button class="cat-pill">هوش مصنوعی <span class="count">(۱)</span></button>
+      <button class="cat-pill">طراحی <span class="count">(۲)</span></button>
+      <button class="cat-pill">کسب‌وکار <span class="count">(۱)</span></button>
+      <button class="cat-pill">فلسفه <span class="count">(۲)</span></button>
+      <button class="cat-pill">سفر <span class="count">(۱)</span></button>
+      <button class="cat-pill">بهره‌وری <span class="count">(۲)</span></button>
+      <button class="cat-pill">روانشناسی <span class="count">(۱)</span></button>
+      <button class="cat-pill">فناوری <span class="count">(۱)</span></button>
+      <button class="cat-pill">مالی <span class="count">(۱)</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FEATURED ===== -->
+<section class="featured">
+  <div class="container">
+    <div class="featured-card">
+      <div class="featured-visual">
+        <span class="featured-badge">مقاله ویژه هفته</span>
+        <span class="featured-emoji">🤖</span>
+      </div>
+      <div class="featured-content">
+        <div class="featured-meta">
+          <span class="featured-cat">هوش مصنوعی</span>
+          <span>📅 ۱۲ آبان ۱۴۰۳</span>
+          <span>⏱ ۹ دقیقه</span>
+        </div>
+        <h2>وقتی ماشین‌ها فکر می‌کنند: هوش مصنوعی و بازتعریف معنای کار</h2>
+        <p>
+          در چند سال گذشته، هوش مصنوعی از یک فناوری حاشیه‌ای به نیرویی تبدیل شده که ساختار اقتصاد، بازار کار و حتی تصور ما از «انسان» را دگرگون می‌کند. اما پشت این هیاهو، پرسشی عمیق‌تر پنهان است: در جهانی که ماشین‌ها فکر می‌کنند، چه چیزی ما را «انسان» نگه می‌دارد؟
+        </p>
+        <div class="featured-author">
+          <div class="author-avatar">پ</div>
+          <div class="author-info">
+            <b>پارسا شجاعی</b>
+            <span>نویسنده و توسعه‌دهنده</span>
+          </div>
+        </div>
+        <button class="read-more" onclick="openArticle(0)">خواندن مقاله کامل ←</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== LATEST ===== -->
+<section class="section" id="latest">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">تازه‌ترین مقالات</div>
+      <h2>دفترچه‌های این هفته</h2>
+      <p>دوازده مقاله درباره‌ی موضوعاتی که ذهن ما را به خود مشغول کرده‌اند</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="articles-grid" id="articlesGrid"></div>
+  </div>
+</section>
+
+<!-- ===== FULL ARTICLE ===== -->
+<section class="full-article-section">
+  <div class="container">
+    <article class="full-article">
+      <span class="art-cat"><span>✦ مقاله برگزیده</span></span>
+      <h1>هنر گم‌شده تمرکز: چگونه در دنیای پر از نوتیفیکیشن، ذهن خود را پس بگیریم</h1>
+      <div class="art-meta">
+        <div class="art-author">
+          <div class="mini-avatar">پ</div>
+          <b>پارسا شجاعی</b>
+        </div>
+        <span>📅 ۱۰ آبان ۱۴۰۳</span>
+        <span>⏱ ۸ دقیقه</span>
+        <span>👁 ۴٬۲۸۰ بازدید</span>
+      </div>
+
+      <p class="lead">
+        چهل سال پیش، اگر کسی می‌خواست بداند چه چیزی در حال نابودی تدریجی توانایی فکری بشر است، احتمالاً به تلویزیون یا بازی‌های ویدئویی اشاره می‌کرد. امروز اما دشمن بسیار ظریف‌تر، هوشمندتر و شخصی‌تر است: خودِ ابزاری که در جیب‌مان است و هر لحظه ما را به خودش فرا می‌خواند.
+      </p>
+
+      <p>
+        نوتیفیکیشن‌ها، اپلیکیشن‌هایی که برای نگه‌داشتن ما طراحی شده‌اند، و اقتصادی که توجه ما را به مثابه‌ی کالایی قابل فروش می‌بیند، همگی دست‌به‌دست هم داده‌اند تا چیزی را از ما بگیرند که روزگاری بدیهی می‌پنداشتیم: تواناییِ ماندن با یک فکر، برای بیش از چند دقیقه.
+      </p>
+
+      <h2>توجه، ارز جدید عصر دیجیتال</h2>
+      <p>
+        هر بار که اعلانی روی صفحه‌ی گوشی ظاهر می‌شود، مغز ما مقدار کوچکی دوپامین ترشح می‌کند؛ همان ماده‌ای که در قمار و خوردن شیرینی هم نقش دارد. این چرخه‌ی کوچک پاداش، به شکلی تدریجی ما را به موجوداتی تبدیل می‌کند که تحمل‌شان نسبت به سکوت و یکنواختی کمتر و کمتر می‌شود.
+      </p>
+
+      <blockquote>
+        «ما در دورانی زندگی می‌کنیم که توجه، نایاب‌ترین و در عین حال ارزشمندترین منبع است. هر کسی که بتواند توجه خود را پس بگیرد، در واقع نوعی قدرت را پس گرفته است.»
+      </blockquote>
+
+      <h2>هزینه‌ی پنهان تغییر زمینه</h2>
+      <p>
+        پژوهش‌های روان‌شناختی نشان می‌دهد که وقتی ذهن ما از یک کار به کاری دیگر می‌پرد، حتی برای چند لحظه، هزینه‌ای معادل ۲۰ تا ۴۰ درصد از توان شناختی‌مان را می‌پردازیم. هر بار که چک کردن پیام‌ها را به کار عمیق‌تر ترجیح می‌دهیم، نه فقط آن لحظه را از دست می‌دهیم، بلکه بخشی از انرژی فکری‌مان را هم می‌سوزانیم.
+      </p>
+
+      <h2>سه تمرین برای بازپس‌گیری ذهن</h2>
+      <ul>
+        <li><strong>بلوک‌های سکوت:</strong> هر روز، حداقل ۹۰ دقیقه زمان مشخصی را بدون گوشی، بدون ایمیل و بدون هیچ اعلانی، صرف یک کار عمیق کنید.</li>
+        <li><strong>پاک‌سازی دیجیتال:</strong> اعلان‌های غیرضروری را حذف کنید، اپلیکیشن‌های اعتیادآور را از صفحه اول گوشی بردارید و ساعات استفاده را محدود کنید.</li>
+        <li><strong>تمرین یکنواختی:</strong> گاهی، ساده‌ترین کارها — قدم زدن بدون هدف، نشستن در سکوت، خیره شدن به آسمان — بهترین تمرین برای بازگرداندن قدرت تمرکز هستند.</li>
+      </ul>
+
+      <p>
+        ما نمی‌توانیم به گذشته بازگردیم و دنیای بدون اعلان را دوباره بسازیم؛ اما می‌توانیم آگاهانه انتخاب کنیم که کجا، چه زمانی و به چه چیزی توجه کنیم. و این انتخاب، شاید مهم‌ترین انتخابی باشد که در عصر دیجیتال انجام می‌دهیم.
+      </p>
+
+      <div class="art-tags">
+        <span class="art-tag">#تمرکز</span>
+        <span class="art-tag">#بهره‌وری</span>
+        <span class="art-tag">#عصر دیجیتال</span>
+        <span class="art-tag">#ذهن‌آگاهی</span>
+        <span class="art-tag">#کار عمیق</span>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ===== QUOTE ===== -->
+<section class="quote-section">
+  <div class="container">
+    <div class="quote-inner">
+      <div class="quote-mark">"</div>
+      <p class="quote-text">
+        بهترین نوشته‌ها آن‌هایی نیستند که بیشترین حرف را می‌زنند، بلکه آن‌هایی هستند که چیزی را در خواننده بیدار می‌کنند.
+      </p>
+      <div class="quote-author">پارسا شجاعی</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUTHOR ===== -->
+<section class="author-section" id="about">
+  <div class="container">
+    <div class="author-inner">
+      <div class="author-portrait">
+        <div class="portrait-frame">✍️</div>
+      </div>
+      <div class="author-content">
+        <div class="section-label">درباره نویسنده</div>
+        <h2>پارسا شجاعی</h2>
+        <p>
+          توسعه‌دهنده، نویسنده و علاقه‌مند به تقاطع فناوری، طراحی و فلسفه. دفترِ شب جایی است که در آن، تجربه‌هایم از دنیای نرم‌افزار و طراحی را با تأملات شخصی‌ام درباره‌ی زندگی روزمره گره می‌زنم.
+        </p>
+        <p>
+          باور دارم که بهترین نوشته‌ها، نه از سر دانستن، بلکه از سر پرسیدن سرچشمه می‌گیرند. هر مقاله‌ای که در اینجا می‌خوانید، نتیجه‌ی یک سؤال شخصی است که هنوز برای آن پاسخ قطعی پیدا نکرده‌ام.
+        </p>
+        <div class="author-stats">
+          <div class="author-stat"><b>۱۲</b><span>مقاله منتشرشده</span></div>
+          <div class="author-stat"><b>۸</b><span>سال تجربه</span></div>
+          <div class="author-stat"><b>+۱۸هزار</b><span>خواننده فعال</span></div>
+        </div>
+        <div class="author-socials">
+          <a href="mailto:parsa.shoajei.team@gmail.com" title="ایمیل">✉</a>
+          <a href="tel:09043758565" title="تماس">📞</a>
+          <a href="#" title="لینکدین">in</a>
+          <a href="#" title="توییتر">X</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NEWSLETTER ===== -->
+<section class="newsletter">
+  <div class="container">
+    <div class="newsletter-inner">
+      <div class="section-label">عضویت در خبرنامه</div>
+      <h2>هر هفته، یک نامه از دفتر شب</h2>
+      <p>
+        اگر دوست دارید نوشته‌های تازه، نکته‌های ناب و پیشنهادهای خواندنی را در ایمیل خود دریافت کنید، ایمیل خود را وارد کنید.
+      </p>
+      <form class="newsletter-form" onsubmit="event.preventDefault();this.reset();alert('✓ عضویت شما با موفقیت ثبت شد')">
+        <input type="email" placeholder="ایمیل شما..." required>
+        <button type="submit">عضویت</button>
+      </form>
+      <div class="newsletter-hint">هر هفته، بدون اسپم، فقط محتوای ارزشمند.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TAGS ===== -->
+<section class="tags-section">
+  <div class="container">
+    <div class="section-head">
+      <div class="section-label">موضوعات</div>
+      <h2>در چه موردی بنویسیم؟</h2>
+      <p>مجموعه‌ای از تگ‌هایی که در مقالات دفتر شب پرتکرارند</p>
+    </div>
+    <div class="tags-inner">
+      <span class="tag-chip">#هوش مصنوعی <span class="count">۱۲</span></span>
+      <span class="tag-chip">#تمرکز <span class="count">۸</span></span>
+      <span class="tag-chip">#طراحی UX <span class="count">۱۵</span></span>
+      <span class="tag-chip">#برندسازی <span class="count">۱۰</span></span>
+      <span class="tag-chip">#مینیمالیسم <span class="count">۷</span></span>
+      <span class="tag-chip">#کار عمیق <span class="count">۹</span></span>
+      <span class="tag-chip">#فلسفه زندگی <span class="count">۱۴</span></span>
+      <span class="tag-chip">#سفرنامه <span class="count">۶</span></span>
+      <span class="tag-chip">#کسب‌وکار کوچک <span class="count">۱۱</span></span>
+      <span class="tag-chip">#نوشتن <span class="count">۹</span></span>
+      <span class="tag-chip">#توسعه فردی <span class="count">۱۸</span></span>
+      <span class="tag-chip">#تجربه کاربری <span class="count">۱۳</span></span>
+      <span class="tag-chip">#عادت‌ها <span class="count">۱۰</span></span>
+      <span class="tag-chip">#تنهایی <span class="count">۵</span></span>
+      <span class="tag-chip">#حافظه <span class="count">۶</span></span>
+      <span class="tag-chip">#روانشناسی <span class="count">۱۴</span></span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">
+          <div class="logo-mark">◐</div>
+          <div class="logo-text">
+            <span>دفترِ شب</span>
+            <span class="logo-sub">DAFTAR-E SHAB</span>
+          </div>
+        </a>
+        <p>دفترِ شب، جایی برای نوشتن درباره‌ی چیزهایی که ذهن‌مان را به خود مشغول می‌کنند: فناوری، طراحی، فلسفه و زندگی.</p>
+        <div class="footer-socials">
+          <a href="#" title="توییتر">X</a>
+          <a href="#" title="لینکدین">in</a>
+          <a href="#" title="اینستاگرام">IG</a>
+          <a href="#" title="تلگرام">TG</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>دسترسی سریع</h4>
+        <a href="#">خانه</a>
+        <a href="#latest">مقالات</a>
+        <a href="#about">درباره</a>
+        <a href="#">تماس</a>
+      </div>
+      <div class="footer-col">
+        <h4>دسته‌بندی‌ها</h4>
+        <a href="#">هوش مصنوعی</a>
+        <a href="#">بهره‌وری</a>
+        <a href="#">طراحی</a>
+        <a href="#">فلسفه</a>
+        <a href="#">سفر</a>
+      </div>
+      <div class="footer-col">
+        <h4>ارتباط با ما</h4>
+        <div class="footer-contact">
+          <span class="fc-icon">✉</span>
+          <a href="mailto:parsa.shoajei.team@gmail.com">parsa.shoajei.team@gmail.com</a>
+        </div>
+        <div class="footer-contact">
+          <span class="fc-icon">📞</span>
+          <a href="tel:09043758565">۰۹۰۴۳۷۵۸۵۶۵</a>
+        </div>
+        <div class="footer-contact">
+          <span class="fc-icon">✍</span>
+          <span>نویسنده: پارسا شجاعی</span>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© ۱۴۰۳ <b>دفترِ شب</b> — تمامی حقوق محفوظ است</div>
+      <div class="footer-dev">
+        <span class="dot"></span>
+        طراحی و توسعه توسط <b>مهندس پارسا شجاعی</b>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MODAL ===== -->
+<div class="modal" id="articleModal">
+  <div class="modal-content">
+    <button class="modal-close" onclick="closeArticle()">×</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+  // ===== ARTICLES DATA (12 articles) =====
+  const articles = [
+    // ============ 1. AI ============
+    {
+      cat:'هوش مصنوعی', emoji:'🤖',
+      title:'وقتی ماشین‌ها فکر می‌کنند: هوش مصنوعی و بازتعریف معنای کار',
+      excerpt:'در چند سال گذشته، هوش مصنوعی از یک فناوری حاشیه‌ای به نیرویی تبدیل شده که ساختار اقتصاد و تصور ما از انسان را دگرگون می‌کند. اما پرسش واقعی این است: در جهانی که ماشین‌ها فکر می‌کنند، چه چیزی ما را انسان نگه می‌دارد؟',
+      date:'۱۲ آبان ۱۴۰۳', readTime:'۹ دقیقه', views:'۲٬۸۵۰',
+      content:`
+        <span class="art-cat"><span>هوش مصنوعی</span></span>
+        <h1>وقتی ماشین‌ها فکر می‌کنند: هوش مصنوعی و بازتعریف معنای کار</h1>
+        <div class="art-meta"><span>📅 ۱۲ آبان ۱۴۰۳</span><span>⏱ ۹ دقیقه</span><span>👁 ۲٬۸۵۰</span></div>
+        <p class="lead">مدل‌های زبانی بزرگ، در کمتر از سه سال، از یک کنجکاوی علمی به ابزاری روزمره تبدیل شده‌اند. اما آنچه امروز در حال وقوع است، فراتر از یک پیشرفت فنی است؛ این یک تغییر پارادایم در تعریف «کار» و «انسان» است.</p>
+        <p>وقتی برای نخستین بار با یک مدل زبانی گفتگو می‌کنید، چیزی در شما تغییر می‌کند. نه به این خاطر که ماشین شبیه انسان است، بلکه به این خاطر که دیگر نمی‌توانید با اطمینان بگویید چه چیزی انسان را از ماشین جدا می‌کند. این حس، مشابه لحظه‌ای است که نخستین بار تلسکوپ گالیله را به آسمان گرفتیم: نه فقط فضا، بلکه جایگاه خودمان را دوباره دیدیم.</p>
+        <h2>آنچه ماشین خوب انجام می‌دهد، و آنچه نمی‌دهد</h2>
+        <p>مدل‌های هوش مصنوعی امروزی، در کارهایی که به «الگو» وابسته‌اند فوق‌العاده عمل می‌کنند: ترجمه، خلاصه‌سازی، تولید متن اولیه، تحلیل داده‌های حجیم، نوشتن کد، و حتی نوشتن شعر. اما در حوزه‌هایی که به «قضاوت» نیاز دارند، همچنان متزلزل‌اند: تصمیم‌گیری در شرایط مبهم، درک زمینه‌های فرهنگی، و شاید مهم‌تر از همه، تشخیص اینکه چه چیزی «درست» است، نه فقط «ممکن».</p>
+        <blockquote>«هوش مصنوعی جای انسان‌ها را نمی‌گیرد؛ انسان‌هایی را جایگزین می‌کند که نمی‌دانند چطور با آن همکاری کنند.»</blockquote>
+        <h2>مواجهه‌ای تاریخی</h2>
+        <p>این نخستین بار نیست که بشر با فناوری‌ای مواجه می‌شود که ساختار کار را دگرگون می‌کند. انقلاب صنعتی، کامپیوترهای شخصی، اینترنت و حالا هوش مصنوعی — هر یک، موجی از اضطراب و فرصت ایجاد کرده‌اند. اما آنچه این موج را متفاوت می‌کند، سرعت و عمق نفوذ آن است: این بار، فناوری به قلمروهایی وارد شده که تا دیروز مختص انسان می‌دانستیم.</p>
+        <h2>مهارت‌هایی که اهمیت بیشتری پیدا می‌کنند</h2>
+        <ul>
+          <li><strong>قضاوت:</strong> توانایی انتخاب بین گزینه‌هایی که همه‌شان «درست» به نظر می‌رسند.</li>
+          <li><strong>سلیقه:</strong> حس تشخیص زیبا از متوسط، درست از شبه‌درست.</li>
+          <li><strong>همدلی:</strong> توانایی درک انسان‌های دیگر و برقراری ارتباط واقعی.</li>
+          <li><strong>پرسیدن سؤال درست:</strong> در جهانی که پاسخ‌ها ارزان شده‌اند، سؤال‌های خوب کمیاب‌ترند.</li>
+        </ul>
+        <p>در چنین جهانی، برنده کسی نیست که بیشترین اطلاعات را دارد، بلکه کسی است که می‌داند با اطلاعات چه کند. و این، دقیقاً چیزی است که هنوز در قلمرو انسانی باقی مانده است.</p>
+      `
+    },
+
+    // ============ 2. UX ============
+    {
+      cat:'طراحی', emoji:'🎨',
+      title:'طراحی برای انسان: هفت اصلی که هر طراح تجربه کاربری باید بداند',
+      excerpt:'طراحی خوب فقط زیبا بودن نیست. طراحی خوب، یعنی درک ذهن انسان و ساختن تجربه‌هایی که با آن ذهن هماهنگ باشند. در این مقاله، هفت اصلی را بررسی می‌کنیم که هر طراح UX باید درونی کرده باشد.',
+      date:'۸ آبان ۱۴۰۳', readTime:'۱۰ دقیقه', views:'۳٬۴۲۰',
+      content:`
+        <span class="art-cat"><span>طراحی</span></span>
+        <h1>طراحی برای انسان: هفت اصلی که هر طراح تجربه کاربری باید بداند</h1>
+        <div class="art-meta"><span>📅 ۸ آبان ۱۴۰۳</span><span>⏱ ۱۰ دقیقه</span><span>👁 ۳٬۴۲۰</span></div>
+        <p class="lead">طراحی خوب، پیش از آنکه به زیبایی مربوط باشد، به درک انسان مربوط است. طراح خوب کسی نیست که بیشترین گرادیانت را بلد است؛ کسی است که می‌داند کاربرش در چه لحظه‌ای از روز، با چه ذهنی، و با چه انتظاری به محصول او نگاه می‌کند.</p>
+        <h2>۱. مدل ذهنی کاربر را بشناسید</h2>
+        <p>هر کاربر، پیش از ورود به محصول شما، مجموعه‌ای از انتظارات و الگوهای ذهنی دارد. اگر طراحی شما با این مدل هم‌خوانی نداشته باشد، کاربر احساس گم‌شدگی می‌کند، حتی اگر طراحی «خوب» باشد.</p>
+        <h2>۲. قانون فیتس</h2>
+        <p>هرچه دکمه‌ای بزرگ‌تر و نزدیک‌تر باشد، کلیک روی آن آسان‌تر است. این اصل ساده توضیح می‌دهد چرا دکمه‌های «خرید» و «ادامه» معمولاً بزرگ و پررنگ‌اند.</p>
+        <h2>۳. قانون هیک</h2>
+        <p>هرچه گزینه‌های بیشتری در اختیار کاربر بگذارید، تصمیم‌گیری او کندتر می‌شود. منوهای شلوغ، فرم‌های پیچیده، و صفحات پر از انتخاب، دشمن تجربه کاربری هستند.</p>
+        <h2>۴. افشای تدریجی</h2>
+        <p>لازم نیست همه‌چیز را یک‌جا به کاربر نشان دهید. اطلاعات را در لایه‌هایی سازمان دهید که هر بار فقط آنچه لازم است، نمایش داده شود.</p>
+        <h2>۵. بازخورد فوری</h2>
+        <p>هر عملی که کاربر انجام می‌دهد، باید بلافاصله پاسخی دریافت کند. این پاسخ می‌تواند یک تغییر رنگ، یک انیمیشن کوچک، یا یک پیام موفقیت باشد. نبود بازخورد، منبع اصلی اضطراب کاربر است.</p>
+        <h2>۶. پیشگیری از خطا</h2>
+        <p>بهترین راه مقابله با خطا، پیشگیری از آن است. دکمه‌های تأیید نهایی، پیام‌های هشدار، و طراحی محتاطانه، از بروز خطاهای پرهزینه جلوگیری می‌کنند.</p>
+        <h2>۷. اثر زیبایی-کاربردپذیری</h2>
+        <p>پژوهش‌ها نشان می‌دهد که کاربران، محصولات زیبا را کاربرپسندتر می‌دانند، حتی اگر واقعاً کاربرپسندتر نباشند. زیبایی، تحمل کاربر را در برابر خطاهای کوچک بالا می‌برد.</p>
+        <blockquote>«طراحی، نه فقط آنچه می‌بینیم، بلکه آنچه حس می‌کنیم را شکل می‌دهد.»</blockquote>
+      `
+    },
+
+    // ============ 3. Branding ============
+    {
+      cat:'کسب‌وکار', emoji:'🏪',
+      title:'برندسازی برای کوچک‌ها: چگونه بدون بودجه میلیونی، برند ماندگار بسازیم',
+      excerpt:'برندسازی فقط کار شرکت‌های بزرگ نیست. کسب‌وکارهای کوچک، با درک درست از هویت خود، می‌توانند برندهایی بسازند که مشتریان را وفادار نگه دارند — حتی با بودجه‌ای محدود.',
+      date:'۵ آبان ۱۴۰۳', readTime:'۷ دقیقه', views:'۲٬۱۱۰',
+      content:`
+        <span class="art-cat"><span>کسب‌وکار</span></span>
+        <h1>برندسازی برای کوچک‌ها: چگونه بدون بودجه میلیونی، برند ماندگار بسازیم</h1>
+        <div class="art-meta"><span>📅 ۵ آبان ۱۴۰۳</span><span>⏱ ۷ دقیقه</span><span>👁 ۲٬۱۱۰</span></div>
+        <p class="lead">یکی از بزرگ‌ترین باورهای اشتباه درباره برندسازی این است که فکر کنیم فقط شرکت‌های بزرگ با بودجه‌های میلیاردی می‌توانند برند بسازند. واقعیت این است که برند، پیش از آنکه یک لوگو یا یک کمپین تبلیغاتی باشد، یک «قول» است.</p>
+        <h2>برند چیست؟</h2>
+        <p>برند، مجموعه‌ای از برداشت‌ها، احساسات و انتظاراتی است که وقتی نام شما را می‌شنوند، در ذهن مشتری شکل می‌گیرد. برند، آن چیزی است که مشتری شما را با آن به یاد می‌آورد.</p>
+        <h2>سه ستون برندسازی برای کسب‌وکار کوچک</h2>
+        <ul>
+          <li><strong>هویت روشن:</strong> بدانید چه هستید، برای چه کسی کار می‌کنید، و چه چیزی شما را از دیگران متمایز می‌کند.</li>
+          <li><strong>تجربه‌ی ثابت:</strong> هر تعامل مشتری با شما — از پاسخ تلفن تا کیفیت محصول — باید همان قول را تکرار کند.</li>
+          <li><strong>داستان:</strong> کسب‌وکارهای کوچک، داستان‌های انسانی‌تری دارند. از آن‌ها استفاده کنید.</li>
+        </ul>
+        <h2>قدم اول: هویت خود را بنویسید</h2>
+        <p>در یک صفحه کاغذ، بنویسید: چه کاری انجام می‌دهید، برای چه کسی، و چرا. اگر نتوانستید در سه جمله توضیح دهید، هنوز هویت خود را پیدا نکرده‌اید.</p>
+        <h2>قدم دوم: قول خود را عملی کنید</h2>
+        <p>برند، در لحظه‌های کوچک ساخته می‌شود: بسته‌بندی محصول، لحن پاسخ‌گویی، سرعت تحویل، و حتی پیامی که پس از خرید ارسال می‌کنید.</p>
+        <h2>قدم سوم: صبور باشید</h2>
+        <p>برندسازی، پروژه‌ای چندساله است، نه چندماهه. آنچه اهمیت دارد، ثبات است.</p>
+        <blockquote>«برند شما، چیزی است که وقتی در اتاق نیستید، درباره‌ی شما می‌گویند.»</blockquote>
+      `
+    },
+
+    // ============ 4. Minimalism ============
+    {
+      cat:'فلسفه', emoji:'🌿',
+      title:'مینیمالیسم: کمتر داشتن، بیشتر زیستن',
+      excerpt:'مینیمالیسم، بهانه‌ای برای دور ریختن وسایل نیست؛ دعوتی است به بازنگری در آنچه واقعاً برایمان اهمیت دارد. در این مقاله، به سراغ ریشه‌های فلسفی این ایده می‌رویم.',
+      date:'۱ آبان ۱۴۰۳', readTime:'۸ دقیقه', views:'۱٬۹۸۰',
+      content:`
+        <span class="art-cat"><span>فلسفه</span></span>
+        <h1>مینیمالیسم: کمتر داشتن، بیشتر زیستن</h1>
+        <div class="art-meta"><span>📅 ۱ آبان ۱۴۰۳</span><span>⏱ ۸ دقیقه</span><span>👁 ۱٬۹۸۰</span></div>
+        <p class="lead">در جهانی که هر گوشه‌اش ما را به داشتن بیشتر فرا می‌خواند، مینیمالیسم به مثابه یک شورش کوچک عمل می‌کند: شورشی آرام علیه انباشت بی‌هدف، علیه شلوغی، علیه آن «بیشتری» که هرگز به «بهتر» تبدیل نمی‌شود.</p>
+        <h2>مینیمالیسم، نه به عنوان سبک، بلکه به عنوان نگاه</h2>
+        <p>برخی گمان می‌کنند مینیمالیسم یعنی خانه‌های سفید و خالی، لباس‌های ساده و زندگی بی‌رنگ. اما مینیمالیسم واقعی، بیش از آنکه به ظاهر مربوط باشد، به نگاه مربوط است: به توانایی تشخیص آنچه ضروری است، از آنچه فقط «بیشتر» است.</p>
+        <blockquote>«کمال، نه وقتی است که چیزی برای افزودن نمانده باشد، بلکه وقتی است که چیزی برای کاستن نمانده باشد.» — آنتوان دو سنت-اگزوپری</blockquote>
+        <h2>ریشه‌های فلسفی</h2>
+        <p>ایده‌ی زندگی ساده، در سنت‌های فلسفی و دینی مختلفی ریشه دارد. از ذن بودیسم که بر «تهی‌بودن» و رهایی از دلبستگی تأکید می‌کند، تا رواقی‌گری که بر تمرکز بر آنچه در کنترل ماست تأکید دارد. در همه‌ی این سنت‌ها، ساده‌زیستی نه یک هدف، بلکه راهی برای رسیدن به چیز دیگری است: آزادی.</p>
+        <h2>مینیمالیسم در زندگی روزمره</h2>
+        <ul>
+          <li><strong>در کالاها:</strong> پیش از خرید، بپرسید آیا این چیز، واقعاً زندگی شما را بهتر می‌کند، یا فقط لحظه‌ای از خرید، احساس رضایت می‌دهد.</li>
+          <li><strong>در زمان:</strong> تقویم خود را خالی کنید. همان‌قدر که برای جلسات وقت می‌گذارید، برای «هیچ‌کاری نکردن» هم وقت بگذارید.</li>
+          <li><strong>در روابط:</strong> عمق را به وسعت ترجیح دهید. چند رابطه‌ی واقعی، ارزشمندتر از صدها رابطه‌ی سطحی است.</li>
+          <li><strong>در اطلاعات:</strong> کمتر بخوانید، اما عمیق‌تر. کمتر ببینید، اما آگاهانه‌تر.</li>
+        </ul>
+        <h2>یک تمرین عملی</h2>
+        <p>این هفته، ده دقیقه وقت بگذارید و به سه سؤال پاسخ دهید: چه چیزهایی در زندگی من، بیش از حد هستند؟ چه چیزهایی، کم؟ و اگر فقط می‌توانستم یکی از این‌ها را تغییر دهم، کدام را انتخاب می‌کردم؟ این تمرین کوچک، می‌تواند آغاز یک تغییر بزرگ باشد.</p>
+        <p>مینیمالیسم، دعوت به فقر نیست؛ دعوت به ثروت واقعی است: ثروت زمان، توجه، و آرامش.</p>
+      `
+    },
+
+    // ============ 5. Travel ============
+    {
+      cat:'سفر', emoji:'🗺️',
+      title:'یادداشت‌هایی از جاده: سفر به عنوان تمرین حضور',
+      excerpt:'سفر، صرفاً جابه‌جایی در مکان نیست؛ تمرینی است برای حضور کامل در لحظه. در این یادداشت، از تجربه‌های جاده‌ای می‌گویم که مرا دوباره به «اینجا و اکنون» برگرداندند.',
+      date:'۲۸ مهر ۱۴۰۳', readTime:'۶ دقیقه', views:'۱٬۵۶۰',
+      content:`
+        <span class="art-cat"><span>سفر</span></span>
+        <h1>یادداشت‌هایی از جاده: سفر به عنوان تمرین حضور</h1>
+        <div class="art-meta"><span>📅 ۲۸ مهر ۱۴۰۳</span><span>⏱ ۶ دقیقه</span><span>👁 ۱٬۵۶۰</span></div>
+        <p class="lead">همیشه فکر می‌کردم سفر یعنی رسیدن به جایی. حالا، پس از سال‌ها، می‌دانم که سفر یعنی رها کردن مقصد، و پذیرفتن اینکه خودِ راه، تمام چیزی است که هست.</p>
+        <h2>صبح روز اول</h2>
+        <p>ساعت پنج صبح است. هوا هنوز تاریک است و خیابان‌ها خالی. کیف کوچکم را برداشته‌ام و از خانه بیرون آمده‌ام. حس عجیبی است: نه هیجان، نه اضطراب — فقط نوعی سکون. مثل لحظه‌ای که در نماز ایستاده‌ای و منتظری. هنوز نمی‌دانم به کجا می‌روم؛ فقط می‌دانم که می‌روم.</p>
+        <h2>جاده</h2>
+        <p>جاده، همیشه معلم خوبی بوده است. جاده به تو یاد می‌دهد که نمی‌توانی همه‌چیز را کنترل کنی. ترافیک، هوا، تصادف، پیچ‌وخم — این‌ها در اختیار تو نیستند. آنچه در اختیار توست، فقط چگونگی واکنش توست.</p>
+        <blockquote>«سفر، نه فرار از زندگی است، نه انکار آن؛ راهی است برای دیدن زندگی، از زاویه‌ای دیگر.»</blockquote>
+        <h2>آدم‌ها</h2>
+        <p>در هر توقف، با آدم‌هایی روبرو می‌شوی که هر کدام داستانی دارند. پیرمردی که در ایستگاه اتوبوس روزنامه می‌فروشد و از پسرش می‌گوید که در آلمان زندگی می‌کند. دختر جوانی که با کوله‌پشتی به مقصدی نامعلوم می‌رود. زنی که با دو فرزندش، به دیدن مادرش می‌رود.</p>
+        <h2>بازگشت</h2>
+        <p>وقتی برمی‌گردی، همان آدم قبلی نیستی. نه به این خاطر که چیزی عوض شده، بلکه به این خاطر که خودت کمی عوض شده‌ای. جاده، آرام‌آرام، لایه‌های اضافی را از تو می‌گیرد. آنچه می‌ماند، چیزی است که همیشه بودی، اما فراموش کرده بودی.</p>
+        <p>شاید معنای سفر همین باشد: نه دیدن جای جدید، بلکه دیدن خود، با چشمی تازه.</p>
+      `
+    },
+
+    // ============ 6. Deep Work ============
+    {
+      cat:'بهره‌وری', emoji:'⏳',
+      title:'کار عمیق در عصر پرشتاب: چگونه کیفیت را جایگزین کمیت کنیم',
+      excerpt:'در دنیایی که همه در حال دویدن‌اند، کسانی که می‌ایستند و عمیق کار می‌کنند، برنده‌اند. مروری بر فلسفه‌ی «کار عمیق» و راه‌های عملی پیاده‌سازی آن.',
+      date:'۲۴ مهر ۱۴۰۳', readTime:'۷ دقیقه', views:'۲٬۴۳۰',
+      content:`
+        <span class="art-cat"><span>بهره‌وری</span></span>
+        <h1>کار عمیق در عصر پرشتاب: چگونه کیفیت را جایگزین کمیت کنیم</h1>
+        <div class="art-meta"><span>📅 ۲۴ مهر ۱۴۰۳</span><span>⏱ ۷ دقیقه</span><span>👁 ۲٬۴۳۰</span></div>
+        <p class="lead">چند سال پیش، اصطلاحی در دنیای بهره‌وری رواج پیدا کرد که به سرعت به یکی از مهم‌ترین مفاهیم عصر دیجیتال تبدیل شد: «کار عمیق». این اصطلاح، توسط کال نیوپورت ابداع شد و به نوعی از کار اشاره دارد که در آن، تمرکز کامل و بدون مزاحمت، صرف یک وظیفه‌ی شناختی چالش‌برانگیز می‌شود.</p>
+        <h2>چرا کار عمیق اهمیت دارد؟</h2>
+        <p>در اقتصاد دانش‌محور، ارزشمندترین خروجی‌ها از دل کار عمیق بیرون می‌آیند: نوشتن یک کتاب، طراحی یک سیستم، حل یک مسئله‌ی پیچیده، یا ساختن یک محصول. این کارها را نمی‌توان در میان انبوهی از جلسات و اعلان‌ها انجام داد.</p>
+        <blockquote>«توانایی انجام کار عمیق، در قرن بیست‌ویکم، به یک ابرقدرت تبدیل شده است.» — کال نیوپورت</blockquote>
+        <h2>موانع اصلی</h2>
+        <ul>
+          <li><strong>اعلان‌های مداوم:</strong> هر اعلان، بهانه‌ای برای قطع تمرکز است.</li>
+          <li><strong>جلسات بی‌پایان:</strong> جلساتی که می‌توانستند یک ایمیل باشند.</li>
+          <li><strong>توهم چندکارگی:</strong> مغز انسان چندکاره نیست؛ فقط سریع بین کارها جابه‌جا می‌شود.</li>
+          <li><strong>فرهنگ «همیشه در دسترس»:</strong> انتظاری که از ما می‌رود که همیشه پاسخگو باشیم.</li>
+        </ul>
+        <h2>چگونه کار عمیق را در زندگی روزمره پیاده کنیم؟</h2>
+        <ul>
+          <li><strong>بلوک‌های زمانی مشخص:</strong> هر روز، حداقل ۹۰ دقیقه را به کار عمیق اختصاص دهید.</li>
+          <li><strong>محیط مناسب:</strong> مکانی پیدا کنید که در آن، هیچ محرک خارجی وجود نداشته باشد.</li>
+          <li><strong>قانون «نه» گفتن:</strong> یاد بگیرید به جلسات، پروژه‌ها و درخواست‌هایی که تمرکز شما را می‌شکنند، «نه» بگویید.</li>
+          <li><strong>پایان روز مشخص:</strong> در پایان روز، به طور آگاهانه کار را رها کنید.</li>
+        </ul>
+        <p>کار عمیق، به معنای کار بیشتر نیست؛ به معنای کار بهتر است. در جهانی که همه در حال دویدن‌اند، کسانی که می‌ایستند و عمیق کار می‌کنند، برنده‌اند.</p>
+      `
+    },
+
+    // ============ 7. HABITS (NEW) ============
+    {
+      cat:'روانشناسی', emoji:'🌱',
+      title:'قدرت عادت‌های کوچک: چرا تغییرات یک‌درصدی مهم‌ترند؟',
+      excerpt:'بیشتر ما فکر می‌کنیم تغییرات بزرگ، نیازمند اقدامات بزرگ هستند. اما علم عادت‌ها چیز دیگری می‌گوید: تغییرات کوچک و پیوسته، در طول زمان، بزرگ‌ترین دگرگونی‌ها را می‌سازند.',
+      date:'۲۰ مهر ۱۴۰۳', readTime:'۹ دقیقه', views:'۳٬۱۵۰',
+      content:`
+        <span class="art-cat"><span>روانشناسی</span></span>
+        <h1>قدرت عادت‌های کوچک: چرا تغییرات یک‌درصدی مهم‌ترند؟</h1>
+        <div class="art-meta"><span>📅 ۲۰ مهر ۱۴۰۳</span><span>⏱ ۹ دقیقه</span><span>👁 ۳٬۱۵۰</span></div>
+        <p class="lead">بیشتر ما فکر می‌کنیم تغییرات بزرگ، نیازمند اقدامات بزرگ هستند. اگر می‌خواهیم وزن کم کنیم، باید رژیم سخت بگیریم. اگر می‌خواهیم کتاب بنویسیم، باید هر روز ۸ ساعت بنویسیم. اما علم عادت‌ها چیز دیگری می‌گوید: تغییرات کوچک و پیوسته، در طول زمان، بزرگ‌ترین دگرگونی‌ها را می‌سازند.</p>
+        <h2>ریاضیات عادت‌ها</h2>
+        <p>جیمز کلیر، نویسنده‌ی کتاب «عادت‌های اتمی»، این ایده را با یک محاسبه‌ی ساده توضیح می‌دهد: اگر هر روز فقط ۱٪ بهتر شوید، در پایان یک سال، ۳۷ برابر بهتر خواهید بود. و اگر هر روز ۱٪ بدتر شوید، تقریباً به صفر می‌رسید. عادت‌ها، مثل بهره‌ی مرکب هستند: در کوتاه‌مدت نامحسوس، در بلندمدت شگفت‌انگیز.</p>
+        <blockquote>«شما به سطح اهدافتان نمی‌رسید؛ شما به سطح سیستم‌هایتان سقوط می‌کنید.» — جیمز کلیر</blockquote>
+        <h2>حلقه‌ی عادت</h2>
+        <p>هر عادتی، از سه بخش تشکیل شده است: نشانه (trigger)، روتین (routine) و پاداش (reward). نشانه، چیزی است که عادت را فعال می‌کند. روتین، خود رفتار است. و پاداش، احساسی است که پس از رفتار دریافت می‌کنیم. برای تغییر یک عادت، باید هر سه بخش را بشناسیم.</p>
+        <h2>طراحی محیط، مهم‌تر از اراده</h2>
+        <p>بسیاری از ما فکر می‌کنیم برای ساختن عادت خوب، به «اراده» نیاز داریم. اما پژوهش‌ها نشان می‌دهد که محیط، بسیار قدرتمندتر از اراده است. اگر کتاب روی میز کارتان باشد، احتمال خواندنش بیشتر است. اگر گوشی‌تان در اتاق دیگری باشد، احتمال تمرکزتان بیشتر است. به جای جنگیدن با خودتان، محیط را تغییر دهید.</p>
+        <h2>هویت، نه هدف</h2>
+        <p>مؤثرترین راه برای ساختن عادت پایدار، تغییر هویت است، نه تعیین هدف. اگر بگویید «می‌خواهم ۱۰ کیلو کم کنم»، این یک هدف است. اگر بگویید «من کسی هستم که سالم غذا می‌خورد»، این یک هویت است. عادت‌ها، زمانی پایدار می‌شوند که با هویت ما هم‌خوان باشند.</p>
+        <h2>سه تمرین عملی</h2>
+        <ul>
+          <li><strong>قانون دو دقیقه:</strong> هر عادت جدید را، در ابتدا، به یک نسخه‌ی دو دقیقه‌ای کاهش دهید. به جای «هر روز یک ساعت ورزش»، «هر روز کفش ورزشی بپوشید».</li>
+          <li><strong>پشته‌سازی عادت:</strong> عادت جدید را به یک عادت موجود گره بزنید: «بعد از مسواک زدن، دو دقیقه مدیتیشن می‌کنم».</li>
+          <li><strong>ردیابی بصری:</strong> یک تقویم روی دیوار بزنید و هر روز که عادت را انجام دادید، یک علامت بزنید. دیدن زنجیره‌ی علامت‌ها، خودش یک انگیزه‌ی قوی است.</li>
+        </ul>
+        <p>عادت‌های کوچک، معجزه نمی‌کنند؛ اما در طول زمان، معجزه می‌سازند. کلید ماجرا این است: امروز شروع کنید، و فردا هم ادامه دهید.</p>
+      `
+    },
+
+    // ============ 8. LONELINESS (NEW) ============
+    {
+      cat:'روانشناسی', emoji:'🌙',
+      title:'تنهایی، نه تنهائی: نگاهی تازه به یکی از کهن‌ترین احساسات بشر',
+      excerpt:'تنهایی و تنهائی، دو مفهوم متفاوت‌اند که اغلب با هم اشتباه گرفته می‌شوند. در این مقاله، به سراغ معنای واقعی تنهایی می‌رویم و می‌بینیم چرا این احساس، هم می‌تواند ویرانگر باشد و هم سازنده.',
+      date:'۱۶ مهر ۱۴۰۳', readTime:'۸ دقیقه', views:'۲٬۷۸۰',
+      content:`
+        <span class="art-cat"><span>روانشناسی</span></span>
+        <h1>تنهایی، نه تنهائی: نگاهی تازه به یکی از کهن‌ترین احساسات بشر</h1>
+        <div class="art-meta"><span>📅 ۱۶ مهر ۱۴۰۳</span><span>⏱ ۸ دقیقه</span><span>👁 ۲٬۷۸۰</span></div>
+        <p class="lead">تنهایی، یکی از کهن‌ترین احساسات بشری است. از غارنشینانی که در تاریکی شب به آتش خیره می‌شدند، تا انسان مدرنی که در میان انبوهی از ارتباطات دیجیتال، احساس می‌کند هیچ‌کس او را نمی‌بیند. اما تنهایی همیشه هم بد نیست. تفاوت را باید در جایی دیگر جست: در تفاوت میان «تنهایی» و «تنهائی».</p>
+        <h2>تنهایی و تنهائی: تفاوت کجاست؟</h2>
+        <p>در زبان فارسی، این دو کلمه گاهی به جای هم به کار می‌روند، اما معنای متفاوتی دارند. «تنهائی» به وضعیت بیرونی اشاره دارد: بودن بدون دیگران. «تنهایی» به وضعیت درونی اشاره دارد: احساس جدا افتادن از دیگران، حتی در میان جمع. یک نفر می‌تواند در یک مهمانی پر از آدم، عمیقاً تنها باشد؛ و یک نفر دیگر می‌تواند در یک کلبه‌ی دورافتاده، احساس تنهائی نکند.</p>
+        <blockquote>«تنهایی، نه نبودِ آدم‌ها در اطراف ماست، بلکه نبودِ ارتباط معنادار با آن‌هاست.»</blockquote>
+        <h2>تنهایی مدرن</h2>
+        <p>پارادوکس عصر ما این است: هرگز این‌قدر به هم متصل نبوده‌ایم، و هرگز این‌قدر احساس تنهایی نکرده‌ایم. شبکه‌های اجتماعی، ما را به صدها «دوست» وصل کرده‌اند، اما عمق این ارتباطات، اغلب سطحی است. ما در حال انباشت مخاطب هستیم، نه ساختن رابطه.</p>
+        <h2>تنهایی سازنده</h2>
+        <p>با این حال، تنهایی همیشه یک دشمن نیست. بسیاری از خلاق‌ترین لحظات زندگی ما، در تنهایی رخ می‌دهند. نیچه می‌گفت: «تنهایی، برای ذهن‌های خلاق، یک ضرورت است.» در تنهایی است که می‌توانیم به خودمان گوش کنیم، ایده‌های تازه را بپرورانیم، و به عمق فکر کنیم.</p>
+        <h2>چگونه با تنهایی مواجه شویم؟</h2>
+        <ul>
+          <li><strong>تشخیص تفاوت:</strong> اول ببینید آیا تنهائید یا تنها. اگر تنهائید، به دنبال ارتباط باشید. اگر تنها، به دنبال معنا.</li>
+          <li><strong>ساختن ارتباطات عمیق:</strong> چند رابطه‌ی عمیق، ارزشمندتر از صدها رابطه‌ی سطحی است. وقت بگذارید، گوش دهید، حضور داشته باشید.</li>
+          <li><strong>پذیرش تنهایی:</strong> گاهی تنهایی، نه یک مشکل، بلکه یک دعوت است: دعوتی به شناخت خود.</li>
+          <li><strong>نوشتن:</strong> نوشتن درباره‌ی تنهایی، یکی از مؤثرترین راه‌های مواجهه با آن است. کاغذ، همیشه گوش می‌دهد.</li>
+        </ul>
+        <p>تنهایی، نه یک ضعف است، نه یک بیماری. یک احساس انسانی است که همه‌ی ما، درجاتی از آن را تجربه می‌کنیم. و شاید مهم‌ترین کار، این باشد که به جای فرار از آن، یاد بگیریم با آن زندگی کنیم.</p>
+      `
+    },
+
+    // ============ 9. INTERNET & MEMORY (NEW) ============
+    {
+      cat:'فناوری', emoji:'🧠',
+      title:'اینترنت و حافظه: آیا گوگل ما را فراموش‌کار کرده است؟',
+      excerpt:'پیش از اینترنت، حافظه بار سنگینی بر دوش داشت. اما امروز، ما بیشتر اطلاعات را در فضای ابری ذخیره می‌کنیم تا در ذهن خود. این تغییر، چه تأثیری بر مغز ما دارد؟',
+      date:'۱۲ مهر ۱۴۰۳', readTime:'۷ دقیقه', views:'۲٬۳۲۰',
+      content:`
+        <span class="art-cat"><span>فناوری</span></span>
+        <h1>اینترنت و حافظه: آیا گوگل ما را فراموش‌کار کرده است؟</h1>
+        <div class="art-meta"><span>📅 ۱۲ مهر ۱۴۰۳</span><span>⏱ ۷ دقیقه</span><span>👁 ۲٬۳۲۰</span></div>
+        <p class="lead">پیش از اینترنت، حافظه بار سنگینی بر دوش داشت. باید شماره تلفن‌ها را حفظ می‌کردیم، آدرس‌ها را به خاطر می‌سپردیم، و اطلاعات را در ذهن خود نگه می‌داشتیم. اما امروز، ما بیشتر اطلاعات را در فضای ابری ذخیره می‌کنیم تا در ذهن خود. این تغییر، چه تأثیری بر مغز ما دارد؟</p>
+        <h2>حافظه‌ی برون‌سپاری‌شده</h2>
+        <p>روان‌شناسان به این پدیده می‌گویند «حافظه‌ی برون‌سپاری‌شده» (transactive memory): زمانی که ما اطلاعات را نه در ذهن خود، بلکه در یک منبع خارجی — یک کتاب، یک دوست، یا یک گوشی — ذخیره می‌کنیم. این پدیده جدید نیست؛ انسان‌ها همیشه از دفترچه یادداشت، کتاب و افراد دیگر برای تقویت حافظه استفاده کرده‌اند.</p>
+        <h2>اثر گوگل</h2>
+        <p>پژوهش معروفی در سال ۲۰۱۱ نشان داد که وقتی مردم می‌دانند اطلاعاتی در دسترس است (مثلاً از طریق گوگل)، کمتر تلاش می‌کنند آن را به خاطر بسپارند. به جای حفظ اطلاعات، آنها فقط محل ذخیره‌ی آن را به خاطر می‌سپارند. این پدیده، به «اثر گوگل» معروف شد.</p>
+        <blockquote>«ما اطلاعات را به خاطر نمی‌سپاریم؛ ما محل اطلاعات را به خاطر می‌سپاریم.»</blockquote>
+        <h2>آیا این بد است؟</h2>
+        <p>پاسخ ساده است: نه لزوماً. حافظه‌ی برون‌سپاری‌شده می‌تواند مزایای مهمی داشته باشد: ما را آزاد می‌کند تا انرژی ذهنی‌مان را برای کارهای مهم‌تر — خلاقیت، حل مسئله، تفکر انتزاعی — صرف کنیم. همان‌طور که دفترچه یادداشت، ذهن ما را آزاد کرد.</p>
+        <h2>اما یک خطر واقعی وجود دارد</h2>
+        <p>خطر واقعی این است که ما کم‌کم توانایی حفظ کردن را به کل کنار بگذاریم. مثل کسی که همیشه با ماشین‌حساب کار کرده و حالا نمی‌تواند دو عدد ساده را در ذهنش جمع کند. حافظه، مثل ماهیچه، اگر ورزش داده نشود، ضعیف می‌شود.</p>
+        <h2>راه‌های بازپس‌گیری حافظه</h2>
+        <ul>
+          <li><strong>شماره تلفن‌های مهم را حفظ کنید:</strong> حداقل چند شماره‌ی ضروری را در ذهن خود نگه دارید.</li>
+          <li><strong>کتاب بخوانید، نه خلاصه:</strong> خواندن کتاب، بیشتر از خواندن خلاصه، حافظه را درگیر می‌کند.</li>
+          <li><strong>مطالب را با دست بنویسید:</strong> نوشتن با دست، بیشتر از تایپ کردن، به حافظه کمک می‌کند.</li>
+          <li><strong>بازی‌های حافظه:</strong> شطرنج، سودوکو، یا حفظ شعر، تمرین‌های خوبی برای حافظه هستند.</li>
+        </ul>
+        <p>تکنولوژی، دشمن حافظه نیست. اما اگر ما انتخاب کنیم که همه‌چیز را به آن بسپاریم، ممکن است در نهایت چیزی برای از دست دادن نداشته باشیم. تعادل، کلید ماجراست.</p>
+      `
+    },
+
+    // ============ 10. ART OF SEEING (NEW) ============
+    {
+      cat:'طراحی', emoji:'👁️',
+      title:'هنر دیدن: چگونه چیزهای معمولی را فوق‌العاده ببینیم',
+      excerpt:'هنرمند کسی نیست که چیزهای خاص می‌بیند؛ کسی است که چیزهای معمولی را خاص می‌بیند. در این مقاله، به سراغ «هنر دیدن» می‌رویم و یاد می‌گیریم چطور با نگاهی تازه به دنیا نگاه کنیم.',
+      date:'۸ مهر ۱۴۰۳', readTime:'۶ دقیقه', views:'۱٬۸۹۰',
+      content:`
+        <span class="art-cat"><span>طراحی</span></span>
+        <h1>هنر دیدن: چگونه چیزهای معمولی را فوق‌العاده ببینیم</h1>
+        <div class="art-meta"><span>📅 ۸ مهر ۱۴۰۳</span><span>⏱ ۶ دقیقه</span><span>👁 ۱٬۸۹۰</span></div>
+        <p class="lead">هنرمند کسی نیست که چیزهای خاص می‌بیند؛ کسی است که چیزهای معمولی را خاص می‌بیند. این جمله‌ای است که بارها شنیده‌ایم، اما کمتر به معنای واقعی آن فکر کرده‌ایم. «هنر دیدن»، توانایی است که همه‌ی ما، در درجات مختلف، از آن برخورداریم. سؤال این است: چگونه می‌توان این توانایی را تقویت کرد؟</p>
+        <h2>نگاه اول، همیشه سطحی است</h2>
+        <p>وقتی برای نخستین بار به یک شیء نگاه می‌کنیم، مغز ما بلافاصله آن را دسته‌بندی می‌کند: «این یک صندلی است»، «این یک درخت است». این دسته‌بندی، برای بقا ضروری است، اما برای دیدن، مانع. نگاه اول، همیشه سطحی است. برای دیدن واقعی، باید از این سطح عبور کنیم.</p>
+        <h2>کندوکاو، نه نگاه کردن</h2>
+        <p>یک تمرین ساده: یک شیء معمولی — یک لیوان، یک سنگ، یک برگ — انتخاب کنید. به مدت پنج دقیقه به آن نگاه کنید. ابتدا همه‌چیز را می‌بینید. بعد، جزئیات را. بعد، رابطه‌ی بین اجزا. بعد، بافت. بعد، رنگ. بعد، سایه. بعد، ... هر بار، چیز جدیدی می‌بینید. این، کندوکاو است، نه نگاه کردن.</p>
+        <blockquote>«دیدن، نه یک عمل منفعلانه، بلکه یک عمل فعال است. دیدن یعنی انتخاب کردن آنچه می‌بینیم.»</blockquote>
+        <h2>سکوت بصری</h2>
+        <p>یکی از بزرگ‌ترین موانع دیدن، شلوغی است. شلوغی بصری، شلوغی ذهنی. وقتی همه‌چیز در اطراف ما پر از اطلاعات است، مغز ما یاد می‌گیرد که فیلتر کند، که ببیند و رد شود. اما برای دیدن واقعی، گاهی باید شلوغی را کنار بگذاریم. یک اتاق خالی، یک منظره‌ی ساده، یک دیوار سفید. در سکوت بصری است که چشم، دوباره یاد می‌گیرد ببیند.</p>
+        <h2>سه تمرین برای تقویت هنر دیدن</h2>
+        <ul>
+          <li><strong>تمرین پنج دقیقه‌ای:</strong> هر روز، پنج دقیقه به یک شیء معمولی نگاه کنید و سعی کنید چیزی ببینید که قبلاً ندیده‌اید.</li>
+          <li><strong>قدم زدن آهسته:</strong> در مسیر همیشگی‌تان، آهسته‌تر قدم بزنید و به جزئیاتی که هرگز به آن‌ها توجه نکرده‌اید، دقت کنید.</li>
+          <li><strong>طراحی کردن:</strong> هر روز، یک طرح ساده از یک شیء بکشید. لازم نیست خوب باشد؛ نکته این است که وقتی می‌کشید، مجبور می‌شوید ببینید.</li>
+        </ul>
+        <p>دیدن، یک مهارت است، مثل هر مهارت دیگری. با تمرین، می‌توان آن را تقویت کرد. و پاداش آن، نه فقط در هنر، بلکه در زندگی است: دیدنِ زیبایی در چیزهای معمولی، می‌تواند زندگی روزمره را به تجربه‌ای غنی‌تر تبدیل کند.</p>
+      `
+    },
+
+    // ============ 11. MONEY & HAPPINESS (NEW) ============
+    {
+      cat:'مالی', emoji:'💰',
+      title:'پول و شادی: آنچه پژوهش‌ها واقعاً می‌گویند',
+      excerpt:'همه می‌دانیم که پول، خوشبختی نمی‌خرد. اما رابطه‌ی این دو، بسیار پیچیده‌تر از یک جمله‌ی ساده است. در این مقاله، به سراغ پژوهش‌های علمی می‌رویم تا ببینیم پول، کجا و چگونه به شادی کمک می‌کند.',
+      date:'۴ مهر ۱۴۰۳', readTime:'۸ دقیقه', views:'۲٬۹۸۰',
+      content:`
+        <span class="art-cat"><span>مالی</span></span>
+        <h1>پول و شادی: آنچه پژوهش‌ها واقعاً می‌گویند</h1>
+        <div class="art-meta"><span>📅 ۴ مهر ۱۴۰۳</span><span>⏱ ۸ دقیقه</span><span>👁 ۲٬۹۸۰</span></div>
+        <p class="lead">همه می‌دانیم که پول، خوشبختی نمی‌خرد. اما رابطه‌ی این دو، بسیار پیچیده‌تر از یک جمله‌ی ساده است. در این مقاله، به سراغ پژوهش‌های علمی می‌رویم تا ببینیم پول، کجا و چگونه به شادی کمک می‌کند — و کجا نمی‌کند.</p>
+        <h2>مطالعه‌ی هاروارد</h2>
+        <p>معروف‌ترین مطالعه‌ی طولانی‌مدت درباره‌ی شادی، مطالعه‌ی دانشگاه هاروارد است که از سال ۱۹۳۸ آغاز شد و هنوز ادامه دارد. نتیجه‌ی این مطالعه، ساده اما عمیق است: مهم‌ترین عامل شادی، نه پول است، نه شهرت، نه موفقیت شغلی، بلکه «کیفیت روابط انسانی» است. افرادی که روابط گرم، عمیق و پایدار دارند، شادتر و سالم‌ترند.</p>
+        <h2>نقطه‌ی اشباع</h2>
+        <p>پژوهش مشهور دنیل کانمن و آنگوس دیتون در سال ۲۰۱۰ نشان داد که درآمد تا یک نقطه‌ی خاص (حدود ۷۵ هزار دلار در سال)، با شادی رابطه‌ی مستقیم دارد. اما پس از آن نقطه، افزایش درآمد، افزایش چشمگیری در شادی ایجاد نمی‌کند. این پدیده، به «نقطه‌ی اشباع» معروف شد.</p>
+        <blockquote>«پول، تا یک حدی، مشکل‌ساز است؛ و پس از آن، فقط مشکل‌سازتر.»</blockquote>
+        <h2>پژوهش‌های جدیدتر</h2>
+        <p>اما پژوهش‌های جدیدتر (۲۰۲۱) تصویر را پیچیده‌تر کرده‌اند: محققان دریافتند که رابطه‌ی پول و شادی، در سطوح بالاتر درآمد هم ادامه دارد، اما با شیب بسیار کم. یعنی هر دلار اضافی، شادی کمتری می‌آورد، اما صفر نمی‌شود. کلید ماجرا این است: پول، وقتی به «امنیت» و «آزادی» تبدیل شود، شادی می‌آورد. وقتی فقط به «انباشت» تبدیل شود، نه.</p>
+        <h2>تجربه در برابر کالا</h2>
+        <p>پژوهش‌ها نشان می‌دهد که خرج کردن پول برای «تجربه» (سفر، کنسرت، شام با دوستان) بیشتر از خرج کردن برای «کالا» (گوشی جدید، لباس، ماشین) شادی می‌آورد. چرا؟ چون تجربه‌ها، خاطرات می‌سازند، با دیگران به اشتراک گذاشته می‌شوند، و هویت ما را غنی‌تر می‌کنند.</p>
+        <h2>بخشش</h2>
+        <p>یکی از شگفت‌انگیزترین یافته‌های پژوهش‌های شادی این است: خرج کردن پول برای دیگران، بیشتر از خرج کردن برای خود، شادی می‌آورد. حتی مبالغ کوچک (۵ دلار) که به دیگران بخشیده می‌شوند، شادی بیشتری از همان مبلغ که برای خود خرج می‌شود، ایجاد می‌کنند.</p>
+        <h2>سه اصل عملی</h2>
+        <ul>
+          <li><strong>امنیت را تأمین کنید، نه بیشتر:</strong> پول، ابتدا برای تأمین امنیت (مسکن، غذا، بهداشت) لازم است. پس از آن، اولویت‌ها عوض می‌شوند.</li>
+          <li><strong>تجربه بخرید، نه کالا:</strong> سفر، کنسرت، آموزش، یا یک شام خوب با دوستان، بیشتر از یک گوشی جدید شادی می‌آورد.</li>
+          <li><strong>ببخشید:</strong> بخشیدن، حتی به مقدار کم، یکی از قوی‌ترین راه‌های افزایش شادی است.</li>
+        </ul>
+        <p>پول، ابزار است، نه هدف. و مثل هر ابزاری، آنچه اهمیت دارد، نحوه‌ی استفاده از آن است. هوشمندانه خرج کنید، و پول می‌تواند شادی بیاورد — نه به خاطر خودش، بلکه به خاطر آنچه ممکن می‌کند.</p>
+      `
+    },
+
+    // ============ 12. WHY STORIES (NEW) ============
+    {
+      cat:'فلسفه', emoji:'📖',
+      title:'چرا داستان می‌خوانیم؟ از علم اعصاب تا معنای زندگی',
+      excerpt:'انسان، حیوان داستان‌گو است. از اسطوره‌های باستانی تا رمان‌های مدرن، از قصه‌های شب تا سریال‌های امروزی، داستان، بخشی جدایی‌ناپذیر از زندگی ماست. اما چرا؟',
+      date:'۳۰ شهریور ۱۴۰۳', readTime:'۹ دقیقه', views:'۲٬۱۱۰',
+      content:`
+        <span class="art-cat"><span>فلسفه</span></span>
+        <h1>چرا داستان می‌خوانیم؟ از علم اعصاب تا معنای زندگی</h1>
+        <div class="art-meta"><span>📅 ۳۰ شهریور ۱۴۰۳</span><span>⏱ ۹ دقیقه</span><span>👁 ۲٬۱۱۰</span></div>
+        <p class="lead">انسان، حیوان داستان‌گو است. از اسطوره‌های باستانی تا رمان‌های مدرن، از قصه‌های شب تا سریال‌های امروزی، داستان، بخشی جدایی‌ناپذیر از زندگی ماست. اما چرا؟ چرا مغز ما این‌قدر به داستان‌ها کشش دارد؟ چه چیزی در داستان وجود دارد که در اطلاعات خشک و خالی نیست؟</p>
+        <h2>داستان و مغز</h2>
+        <p>پژوهش‌های علوم اعصاب نشان می‌دهد که وقتی ما یک داستان می‌خوانیم یا می‌شنویم، مغز ما فقط آن را پردازش نمی‌کند؛ بلکه آن را «تجربه» می‌کند. مناطقی از مغز که مربوط به حس، حرکت، و احساسات هستند، فعال می‌شوند. وقتی درباره‌ی دویدن در یک داستان می‌خوانیم، نورون‌های حرکتی ما فعال می‌شوند. وقتی درباره‌ی غم می‌خوانیم، مناطق مربوط به غم فعال می‌شوند. به عبارت دیگر، داستان، یک شبیه‌سازی ذهنی است.</p>
+        <blockquote>«داستان‌ها، شبیه‌سازهای پرواز برای ذهن انسان هستند.» — کیت اوتلی، روان‌شناس</blockquote>
+        <h2>داستان و همدلی</h2>
+        <p>یکی از مهم‌ترین یافته‌های پژوهش‌های اخیر این است: افرادی که بیشتر داستان می‌خوانند، همدلی بیشتری دارند. چرا؟ چون داستان، ما را در ذهن شخصیت‌های دیگر قرار می‌دهد. ما از دریچه‌ی چشم آن‌ها به دنیا نگاه می‌کنیم، احساسات آن‌ها را تجربه می‌کنیم، و در نتیجه، توانایی درک دیگران را در خود تقویت می‌کنیم.</p>
+        <h2>داستان و معنا</h2>
+        <p>شاید مهم‌ترین کارکرد داستان، این باشد: ساختن معنا. زندگی ما، مجموعه‌ای از رویدادهای پراکنده است. اما داستان، به این رویدادها نظم می‌دهد، به آن‌ها معنا می‌بخشد، و به ما کمک می‌کند که زندگی خود را نیز به مثابه یک داستان ببینیم. و همین، می‌تواند حس هدفمندی و انسجام را در ما ایجاد کند.</p>
+        <h2>ادبیات به عنوان آینه</h2>
+        <p>رمان، شعر، نمایشنامه — همه‌ی این‌ها، آینه‌هایی هستند که ما را به خودمان نشان می‌دهند. وقتی یک شخصیت داستانی را می‌بینیم که با مشکلی دست‌وپنجه نرم می‌کند، در واقع با بخشی از خودمان روبرو می‌شویم. و همین رویارویی، می‌تواند درمان‌گر باشد.</p>
+        <h2>چرا هنوز داستان می‌خوانیم؟</h2>
+        <ul>
+          <li><strong>برای تجربه‌ی زندگی‌های دیگر:</strong> داستان، به ما اجازه می‌دهد زندگی‌هایی را تجربه کنیم که هرگز نمی‌توانیم داشته باشیم.</li>
+          <li><strong>برای درک بهتر خودمان:</strong> داستان‌ها، آینه‌هایی هستند که به ما نشان می‌دهند چه کسی هستیم.</li>
+          <li><strong>برای ساختن معنا:</strong> داستان‌ها، به زندگی پراکنده‌ی ما، نظم و معنا می‌بخشند.</li>
+          <li><strong>برای لذت بردن:</strong> و شاید ساده‌ترین دلیل: داستان‌ها لذت‌بخش‌اند. و همین، کافی است.</li>
+        </ul>
+        <p>در جهانی که پر از اطلاعات است، داستان، پناهگاهی است برای روح. جایی که می‌توانیم نفس بکشیم، احساس کنیم، و یاد بگیریم. جایی که می‌توانیم، برای چند لحظه، کسی دیگر باشیم — و از این راه، خودمان را بهتر بشناسیم.</p>
+      `
+    }
+  ];
+
+  // ===== RENDER GRID =====
+  const grid = document.getElementById('articlesGrid');
+  grid.innerHTML = articles.map((a, i) => `
+    <article class="article-card" onclick="openArticle(${i})">
+      <div class="article-visual">
+        <span class="article-cat"><span>${a.cat}</span></span>
+        ${a.emoji}
+      </div>
+      <div class="article-body">
+        <div class="article-meta">
+          <span>📅 ${a.date}</span>
+          <span>⏱ ${a.readTime}</span>
+        </div>
+        <h3>${a.title}</h3>
+        <p>${a.excerpt}</p>
+        <div class="article-footer">
+          <span>👁 ${a.views} بازدید</span>
+          <span class="arrow">←</span>
+        </div>
+      </div>
+    </article>
+  `).join('');
+
+  // ===== MODAL =====
+  function openArticle(id) {
+    document.getElementById('modalBody').innerHTML = articles[id].content;
+    document.getElementById('articleModal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+    window.scrollTo({ top:0, behavior:'instant' });
+  }
+  function closeArticle() {
+    document.getElementById('articleModal').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.getElementById('articleModal').addEventListener('click', (e) => {
+    if (e.target.id === 'articleModal') closeArticle();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeArticle();
+  });
+
+  // ===== CATEGORY FILTER =====
+  document.querySelectorAll('.cat-pill').forEach(pill => {
+    pill.addEventListener('click', () => {
+      document.querySelectorAll('.cat-pill').forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // ===== SMOOTH SCROLL =====
+  document.querySelectorAll('a[href^="#"]').forEach(link => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (href === '#') return;
+      const target = document.querySelector(href);
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior:'smooth', block:'start' });
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
